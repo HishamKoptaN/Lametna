@@ -39,11 +39,11 @@ class ChangeBackground extends StatelessWidget {
               builder: (controller) => FutureBuilder(
                 future: controller.getData(),
                 builder: (context, snapshot) => snapshot.data == null
-                    ? Center(
+                    ? const Center(
                         child: CircularProgressIndicator(),
                       )
                     : ListView.builder(
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: 20,
                         itemBuilder: (context, index) => GestureDetector(
@@ -55,7 +55,7 @@ class ChangeBackground extends StatelessWidget {
                           child: Container(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 15.w, vertical: 30.h),
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 // image: DecorationImage(
                                 //   image: NetworkImage(
                                 //     backgroundImagesURL +
@@ -119,11 +119,11 @@ Widget StyleContainer() {
           BoxShadow(
             color: Colors.grey.withOpacity(0.4),
             blurRadius: 6,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
         // color: Color(0xFFE1E1E1),
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
@@ -148,7 +148,7 @@ Widget StyleContainer() {
               size: 30.sp,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
           Text(
@@ -160,7 +160,7 @@ Widget StyleContainer() {
               fontWeight: FontWeight.bold,
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Padding(
             padding: EdgeInsets.only(bottom: 10.0.h, left: 20.w),
             child: Image.network(

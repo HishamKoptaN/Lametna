@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,7 +26,7 @@ class Favourite extends StatelessWidget {
           ),
         ),
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios_new_rounded,
             color: Colors.black,
           ),
@@ -88,8 +86,6 @@ class Favourite extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: GestureDetector(
         onTap: () {
-          print(userName);
-          print(owner);
           if (userName.isNotEmpty) {
             Get.toNamed('/room', arguments: {
               "room_name": roomName,
@@ -109,7 +105,7 @@ class Favourite extends StatelessWidget {
               borderRadius: BorderRadius.circular(20.r),
             ),
             child: Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: color,
                 borderRadius: BorderRadius.circular(20.r),
@@ -127,7 +123,7 @@ class Favourite extends StatelessWidget {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5.r),
                               border: Border.all(
-                                color: Color(0xFF43D0CA),
+                                color: const Color(0xFF43D0CA),
                               ),
                             ),
                             height: 56.h,

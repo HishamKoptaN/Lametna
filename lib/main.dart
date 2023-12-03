@@ -75,16 +75,17 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           getPages: [
             GetPage(
-              name: '/loginPage',
-              page: () => LoginPage(),
-            ),
-            GetPage(
               name: '/choosingPage',
               page: () => choosingPage(),
             ),
             GetPage(
+              name: '/loginPage',
+              page: () => LoginPage(),
+            ),
+
+            GetPage(
               name: "/chatHomePage",
-              page: () => HomePage(),
+              page: () => const HomePage(),
             ),
             GetPage(
               name: "/countries",
@@ -170,7 +171,7 @@ class MyApp extends StatelessWidget {
             ),
             GetPage(
               name: "/profile",
-              page: () => Profile(),
+              page: () => const Profile(),
             ),
             GetPage(
               name: "/editProfile",
@@ -253,7 +254,7 @@ class MyApp extends StatelessWidget {
       },
       // child: SimpleRecorder(),
       // child: choosingPage(), //////////////////
-      child: LoginPage(),
+      child: choosingPage(),
     );
   }
 }

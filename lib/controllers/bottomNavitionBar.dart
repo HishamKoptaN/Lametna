@@ -7,7 +7,7 @@ import 'userData/userCredentials.dart';
 import '../view/store/test.dart';
 import 'package:get/get.dart';
 
-class BottomNavitionBarController extends GetxController {
+class BottomNavigationBarController extends GetxController {
   bool isShow = true;
   int currentIndex = 0;
   int selectedIndex = 0;

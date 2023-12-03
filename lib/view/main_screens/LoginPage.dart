@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../controllers/main_scrs_cnr/loginController.dart';
+import '../../controllers/loginController.dart';
 import '../../controllers/userData/userCredentials.dart';
 import '../chat/messagesRoom.dart';
 import '../chat/roomInfo.dart';

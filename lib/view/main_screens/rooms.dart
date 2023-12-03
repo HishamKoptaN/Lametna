@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import '../../controllers/main_scrs_cnr/bottomNavitionBar.dart';
-import '../../controllers/main_scrs_cnr/chathomePageController.dart';
+import '../../controllers/bottomNavitionBar.dart';
+import '../../controllers/chathomePageController.dart';
 import '../side pages/drawer.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 

@@ -1,16 +1,16 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+import 'dart:js';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../controllers/userData/userCredentials.dart';
+import '../favourite/favourite.dart';
 import '../profile/profile.dart';
 
 Widget homeDrawer() => Drawer(
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
               Color(0xFFFABD63),
@@ -26,26 +26,27 @@ Widget homeDrawer() => Drawer(
               padding: EdgeInsets.symmetric(vertical: 45.h),
               child: Image.network(
                 'assets/icons/logo.png',
-                // width: 150.w,
                 height: 160.h,
               ),
             ),
             isGuest == false && isRole == false
-                ? GestureDetector(
-                    onTap: () {
-                      Get.toNamed(Profile() as String);
-                    },
-                    child: drawerItem(
-                      'الملف الشخصي',
-                      Icon(
-                        Icons.person,
-                        color: Colors.white,
-                        size: 30.sp,
-                      ),
-                      () {},
+                ? drawerItem(
+                    'الملف الشخصي',
+                    Icon(
+                      Icons.person,
+                      color: Colors.white,
+                      size: 30.sp,
                     ),
+                    () {
+                      Navigator.push(
+                        context as BuildContext,
+                        MaterialPageRoute(
+                          builder: (context) => Profile(),
+                        ),
+                      );
+                    },
                   )
-                : SizedBox(),
+                : const SizedBox(),
             isGuest == false && isRole == false
                 ? drawerItem(
                     'لوحة التحكم',
@@ -55,16 +56,21 @@ Widget homeDrawer() => Drawer(
                       size: 30.sp,
                     ),
                     () {
-                      Get.toNamed('/mainControllerPanel');
+                      Navigator.push(
+                        context as BuildContext,
+                        MaterialPageRoute(
+                          builder: (context) => Profile(),
+                        ),
+                      );
+                      // Get.toNamed('/mainControllerPanel');
                     },
                   )
-                : SizedBox(),
+                : const SizedBox(),
             drawerItem(
               'المتجر',
               Image.network(
                 'assets/icons/bag.png',
                 color: Colors.white,
-                // color: Colors.white,
                 width: 25.w,
                 height: 25.h,
               ),
@@ -93,15 +99,12 @@ Widget homeDrawer() => Drawer(
                 ),
               ),
               () async {
-                final SharedPreferences prefs =
-                    await SharedPreferences.getInstance();
-                // prefs.('username', null);
-                prefs.remove('username');
-                prefs.remove('password');
-                Get.offAllNamed('/choosingPage');
-                isGuest = true;
-
-                /// to make the user guest again
+                //   final SharedPreferences prefs =
+                //       await SharedPreferences.getInstance();
+                //   prefs.remove('username');
+                //   prefs.remove('password');
+                //   Get.offAllNamed('/choosingPage');
+                //   isGuest = true;
               },
             ),
           ],
@@ -114,8 +117,7 @@ Widget drawerItem(String title, Widget icon, Function? onTap) => Directionality(
       child: ListTile(
         dense: true,
         horizontalTitleGap: 0,
-        // minLeadingWidth: 9.w,
-        onTap: null,
+        onTap: onTap as void Function()?,
         leading: icon,
         title: Text(
           title,

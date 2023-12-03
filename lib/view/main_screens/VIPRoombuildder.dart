@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../controllers/main_scrs_cnr/chathomePageController.dart';
+import '../../controllers/chathomePageController.dart';
 import '../../controllers/userData/userCredentials.dart';
 import '../../controllers/userData/variables.dart';
 

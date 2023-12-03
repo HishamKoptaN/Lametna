@@ -14,16 +14,16 @@ class choosingPage extends StatefulWidget {
 
 class _choosingPageState extends State<choosingPage> {
   @override
-  void initState() {
-    super.initState();
-    new Future.delayed(
-      Duration(seconds: 3),
-      () => Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => LoginPage()),
-      ),
-    );
-  }
+  // void initState() {
+  //   super.initState();
+  //   new Future.delayed(
+  //     Duration(seconds: 3),
+  //     () => Navigator.push(
+  //       context,
+  //       MaterialPageRoute(builder: (context) => LoginPage()),
+  //     ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -107,44 +107,89 @@ class _choosingPageState extends State<choosingPage> {
                   child: Scaffold(
                     backgroundColor: Colors.transparent,
                     body: Center(
-                        child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(top: 107.h),
-                          child: Text(
-                            "أختر نوع الدردشة",
-                            style: TextStyle(
-                                fontSize: 20.sp,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: "Portada"),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(top: 107.h),
+                            child: Text(
+                              "أختر نوع الدردشة",
+                              style: TextStyle(
+                                  fontSize: 20.sp,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: "Portada"),
+                            ),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 13.h),
-                          child: Text(
-                            "ودردش مع لمتنا",
-                            style: TextStyle(
-                                fontSize: 20.sp,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: "Portada"),
+                          Padding(
+                            padding: EdgeInsets.only(top: 13.h),
+                            child: Text(
+                              "ودردش مع لمتنا",
+                              style: TextStyle(
+                                  fontSize: 20.sp,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: "Portada"),
+                            ),
                           ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Get.toNamed("/loginPage");
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.only(top: 50.h),
+                          GestureDetector(
+                            onTap: () {
+                              Get.toNamed("/loginPage");
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(top: 50.h),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20.r),
+                                  gradient: LinearGradient(
+                                    tileMode: TileMode.clamp,
+                                    colors: [
+                                      Color(0xFFFABD63),
+                                      Color(0xFFFABD63),
+                                      Color(0xFFF6F6F6),
+                                    ],
+                                    begin: Alignment.bottomRight,
+                                    end: Alignment.topLeft,
+                                    transform: GradientRotation(0.4),
+                                  ),
+                                ),
+                                child: Column(
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                          top: 15.h, left: 58.w, right: 59.w),
+                                      child: Text(
+                                        "الغرف الكتابية",
+                                        style: TextStyle(
+                                            fontSize: 15.sp,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: "Portada"),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(bottom: 14.h),
+                                      child: Image.network(
+                                        "assets/images/message.png",
+                                        width: 220.w,
+                                        height: 120.h,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 37.h),
                             child: Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20.r),
                                 gradient: LinearGradient(
                                   tileMode: TileMode.clamp,
                                   colors: [
-                                    Color(0xFFFABD63),
-                                    Color(0xFFFABD63),
+                                    Color(0xFFF792F0),
+                                    Color(0xFFF792F0),
+                                    // Colors.green,
                                     Color(0xFFF6F6F6),
                                   ],
                                   begin: Alignment.bottomRight,
@@ -158,7 +203,7 @@ class _choosingPageState extends State<choosingPage> {
                                     padding: EdgeInsets.only(
                                         top: 15.h, left: 58.w, right: 59.w),
                                     child: Text(
-                                      "الغرف الكتابية",
+                                      "الغرف الصوتية",
                                       style: TextStyle(
                                           fontSize: 15.sp,
                                           color: Colors.white,
@@ -169,7 +214,7 @@ class _choosingPageState extends State<choosingPage> {
                                   Padding(
                                     padding: EdgeInsets.only(bottom: 14.h),
                                     child: Image.network(
-                                      "assets/images/message.png",
+                                      "assets/images/phone.png",
                                       width: 220.w,
                                       height: 120.h,
                                     ),
@@ -177,54 +222,10 @@ class _choosingPageState extends State<choosingPage> {
                                 ],
                               ),
                             ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 37.h),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.r),
-                              gradient: LinearGradient(
-                                tileMode: TileMode.clamp,
-                                colors: [
-                                  Color(0xFFF792F0),
-                                  Color(0xFFF792F0),
-                                  // Colors.green,
-                                  Color(0xFFF6F6F6),
-                                ],
-                                begin: Alignment.bottomRight,
-                                end: Alignment.topLeft,
-                                transform: GradientRotation(0.4),
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                      top: 15.h, left: 58.w, right: 59.w),
-                                  child: Text(
-                                    "الغرف الصوتية",
-                                    style: TextStyle(
-                                        fontSize: 15.sp,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: "Portada"),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(bottom: 14.h),
-                                  child: Image.network(
-                                    "assets/images/phone.png",
-                                    width: 220.w,
-                                    height: 120.h,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
-                    )),
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ),
