@@ -40,58 +40,58 @@
 // class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
 //   AppLifecycleState _lastLifecycleState;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   WidgetsBinding.instance.addObserver(this);
-  // }
+//   @override
+//   void initState() {
+//     super.initState();
+//     WidgetsBinding.instance.addObserver(this);
+//   }
 
-  // @override
-  // void dispose() {
-  //   WidgetsBinding.instance.removeObserver(this);
-  //   super.dispose();
-  // }
+//   @override
+//   void dispose() {
+//     WidgetsBinding.instance.removeObserver(this);
+//     super.dispose();
+//   }
 
-  // @override
-  // Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
-  //   switch (state) {
-  //     case AppLifecycleState.inactive:
-  //       print("inactive");
-  //       break;
-  //     case AppLifecycleState.paused:
-  //       print("paused");
+//   @override
+//   Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
+//     switch (state) {
+//       case AppLifecycleState.inactive:
+//         print("inactive");
+//         break;
+//       case AppLifecycleState.paused:
+//         print("paused");
 
-  //       break;
-  //     case AppLifecycleState.detached:
-  //       Get.put(RoomsPageController()).onLeave();
+//         break;
+//       case AppLifecycleState.detached:
+//         Get.put(RoomsPageController()).onLeave();
 
-  //       print("detached");
-  //       break;
-  //     case AppLifecycleState.resumed:
-  //       await print("resumed");
-  //       break;
-  //   }
-  //   super.didChangeAppLifecycleState(state);
-  //   if (state == AppLifecycleState.inactive ||
-  //       state == AppLifecycleState.detached) return;
-  //   bool isBackground = state == AppLifecycleState.paused;
-  //   bool isBackground2 = state == AppLifecycleState.inactive;
-  //   if (isBackground2) {
-  //     print("detached");
-  //     // Get.put(RoomsPageController()).onLeave();
-  //   }
-  //   if (isBackground && pickingImage == false) {
-  //     print("paused");
-  //     if (_scaffoldKey.currentState.isEndDrawerOpen) {
-  //       _scaffoldKey.currentState.closeEndDrawer();
-  //     }
-  //     // Get.put(RoomsPageController()).onLeave();
-  //   }
+//         print("detached");
+//         break;
+//       case AppLifecycleState.resumed:
+//         await print("resumed");
+//         break;
+//     }
+//     super.didChangeAppLifecycleState(state);
+//     if (state == AppLifecycleState.inactive ||
+//         state == AppLifecycleState.detached) return;
+//     bool isBackground = state == AppLifecycleState.paused;
+//     bool isBackground2 = state == AppLifecycleState.inactive;
+//     if (isBackground2) {
+//       print("detached");
+//       // Get.put(RoomsPageController()).onLeave();
+//     }
+//     if (isBackground && pickingImage == false) {
+//       print("paused");
+//       if (_scaffoldKey.currentState.isEndDrawerOpen) {
+//         _scaffoldKey.currentState.closeEndDrawer();
+//       }
+//       // Get.put(RoomsPageController()).onLeave();
+//     }
 
-  //   setState(() {
-  //     _lastLifecycleState = state;
-  //   });
-  // }
+//     setState(() {
+//       _lastLifecycleState = state;
+//     });
+//   }
 
 //   // bool isOwner = Get.arguments["owner"] != userName;
 
@@ -657,26 +657,26 @@
 //                                     ),
 //                                   ),
 //                                   itemBuilder: (context) => [
-                                    // controller.userInRoom["data"][index]
-                                    //             ["username"] ==
-                                    //         userName
-                                    //     ? null
-                                    //     : usersPopUpMenu(
-                                    //         "محادثة خاصة",
-                                    //         f: () async {
-                                    //           await Get.back();
-                                    //           Get.toNamed(
-                                    //             "/privateMessageRoom",
-                                    //             arguments: {
-                                    //               "username": controller
-                                    //                       .userInRoom["data"]
-                                    //                   [index]["username"],
-                                    //               "room_id":
-                                    //                   Get.arguments['room_id'],
-                                    //             },
-                                    //           );
-                                    //         },
-                                    //       ),
+//                                     controller.userInRoom["data"][index]
+//                                                 ["username"] ==
+//                                             userName
+//                                         ? null
+//                                         : usersPopUpMenu(
+//                                             "محادثة خاصة",
+//                                             f: () async {
+//                                               await Get.back();
+//                                               Get.toNamed(
+//                                                 "/privateMessageRoom",
+//                                                 arguments: {
+//                                                   "username": controller
+//                                                           .userInRoom["data"]
+//                                                       [index]["username"],
+//                                                   "room_id":
+//                                                       Get.arguments['room_id'],
+//                                                 },
+//                                               );
+//                                             },
+//                                           ),
 //                                     usersPopUpMenu(controller.userInRoom["data"]
 //                                         [index]["username"]),
 //                                     usersPopUpMenu("الإبلاغ عن الستخدم", f: () {
@@ -1589,24 +1589,24 @@
 //     );
 //   }
 
-  // PopupMenuItem<String> statusBuilder(String title, {Widget icon}) {
-  //   return PopupMenuItem(
-  //       height: 40.h,
-  //       // padding: EdgeInsets.zero,
-  //       child: Row(
-  //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //         children: [
-  //           SizedBox(),
-  //           Text(
-  //             title,
-  //             textAlign: TextAlign.center,
-  //             style: TextStyle(color: Colors.black),
-  //           ),
-  //           icon
-  //         ],
-  //       ),
-  //       value: title);
-  // }
+//   PopupMenuItem<String> statusBuilder(String title, {Widget icon}) {
+//     return PopupMenuItem(
+//         height: 40.h,
+//         // padding: EdgeInsets.zero,
+//         child: Row(
+//           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//           children: [
+//             SizedBox(),
+//             Text(
+//               title,
+//               textAlign: TextAlign.center,
+//               style: TextStyle(color: Colors.black),
+//             ),
+//             icon
+//           ],
+//         ),
+//         value: title);
+//   }
 
 //   Widget emojiPickerBuilder() {
 //     return GetBuilder<RoomsPageController>(builder: (controller) {
@@ -2549,33 +2549,33 @@
 //                 ),
 //               ),
 //               child: Text(
-//                 // TextSpan(
-//                 //   style: TextStyle(color: Colors.black, fontSize: 36),
-//                 //   children: <TextSpan>[
-//                 //     // TextSpan(
-//                 //     //     text: 'Woolha ', style: TextStyle(color: Colors.blue)),
-//                 //     // TextSpan(
-//                 //     //   text: message.toString().indexOf("انضم للغرف") != -1
-//                 //     //       ? message.toString().substring(
-//                 //     //           message.toString().indexOf("انضم للغرف"),
-//                 //     //           z)
-//                 //     //       : message.toString().substring(0, 5),
-//                 //       style: TextStyle(
-//                 //         color: Colors.black,
-//                 //         fontSize: 15.sp,
-//                 //         fontFamily: "Segoe UI",
-//                 //       ),
-//                 //     ),
-//                 //     // TextSpan(
-//                 //     //     text: 'com',
-//                 //     //     style: TextStyle(decoration: TextDecoration.underline))
-//                 //   ],
-//                 // ),
-//                 // textScaleFactor: 0.5,
+//                 TextSpan(
+//                   style: TextStyle(color: Colors.black, fontSize: 36),
+//                   children: <TextSpan>[
+//                     // TextSpan(
+//                     //     text: 'Woolha ', style: TextStyle(color: Colors.blue)),
+//                     // TextSpan(
+//                     //   text: message.toString().indexOf("انضم للغرف") != -1
+//                     //       ? message.toString().substring(
+//                     //           message.toString().indexOf("انضم للغرف"),
+//                     //           z)
+//                     //       : message.toString().substring(0, 5),
+//                       style: TextStyle(
+//                         color: Colors.black,
+//                         fontSize: 15.sp,
+//                         fontFamily: "Segoe UI",
+//                       ),
+//                     ),
+//                     // TextSpan(
+//                     //     text: 'com',
+//                     //     style: TextStyle(decoration: TextDecoration.underline))
+//                   ],
+//                 ),
+//                 textScaleFactor: 0.5,
 //                 message,
 //                 textAlign: TextAlign.center,
-//                 // joinOrLeave ? "$alert انضم للغرفة" : "$alert غادر للغرفة",
-//                 // alert,
+//                 joinOrLeave ? "$alert انضم للغرفة" : "$alert غادر للغرفة",
+//                 alert,
 //                 style: TextStyle(
 //                   color: Colors.black,
 //                   fontSize: 12.sp,

@@ -6,8 +6,6 @@ import 'package:get/get.dart';
 import '../controllers/loginController.dart';
 
 class LoginPage extends StatelessWidget {
-  // const LoginPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Container(

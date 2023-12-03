@@ -75,7 +75,7 @@ class PreviosChat extends StatelessWidget {
           future: controller.getChats(),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }
@@ -83,7 +83,7 @@ class PreviosChat extends StatelessWidget {
             List<dynamic>? chatData = snapshot.data as List<dynamic>?;
 
             if (chatData == null || chatData.isEmpty) {
-              return Center(
+              return const Center(
                 child: Text("No chat data available"),
               );
             }
@@ -115,7 +115,7 @@ class PreviosChat extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.r),
                             border: Border.all(
-                              color: Color(0xFF43D0CA),
+                              color: const Color(0xFF43D0CA),
                               width: 1.w,
                             ),
                           ),
@@ -135,7 +135,7 @@ class PreviosChat extends StatelessWidget {
                                   Text(
                                     chatData[index]["message"].toString(),
                                     style: TextStyle(
-                                      color: Color(0xff5C5E5E),
+                                      color: const Color(0xff5C5E5E),
                                       fontFamily: 'Segoe UI',
                                       fontSize: 14.sp,
                                     ),
@@ -147,7 +147,7 @@ class PreviosChat extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(360.r),
                                   border: Border.all(
-                                    color: Color(0xFF707070),
+                                    color: const Color(0xFF707070),
                                     width: 1.w,
                                   ),
                                 ),

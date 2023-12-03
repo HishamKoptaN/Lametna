@@ -53,7 +53,7 @@ Future<void> main() async {
   // await Firebase.initializeApp();
   runApp(
     DevicePreview(
-      builder: (context) => MyApp(),
+      builder: (context) => const MyApp(),
       enabled: false,
     ),
     // MyApp(),
@@ -67,7 +67,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //Set the fit size (Find your UI design, look at the dimensions of the device screen and fill it in,unit in dp)
     return ScreenUtilInit(
-      designSize: Size(428, 926),
+      designSize: const Size(428, 926),
       // minTextAdapt: true,
       // splitScreenMode: true,
       builder: (context, child) {
@@ -97,11 +97,11 @@ class MyApp extends StatelessWidget {
             // GetPage(name: '/room', page: () => Room()),
             GetPage(
               name: '/customerService',
-              page: () => CustomerService(),
+              page: () => const CustomerService(),
             ),
             GetPage(
               name: '/roomMangement',
-              page: () => RoomMangement(),
+              page: () => const RoomMangement(),
             ),
             GetPage(
               name: '/roomSettingsPage',
@@ -109,19 +109,19 @@ class MyApp extends StatelessWidget {
             ),
             GetPage(
               name: '/customerServiceChat',
-              page: () => CustomerServiceChat(),
+              page: () => const CustomerServiceChat(),
             ),
             GetPage(
               name: '/salesChat',
-              page: () => SalesChat(),
+              page: () => const SalesChat(),
             ),
             GetPage(
               name: '/complaintsSuggestions',
-              page: () => ComplaintsSuggestions(),
+              page: () => const ComplaintsSuggestions(),
             ),
             GetPage(
               name: '/about',
-              page: () => About(),
+              page: () => const About(),
             ),
             GetPage(
               name: '/moments',
@@ -137,11 +137,11 @@ class MyApp extends StatelessWidget {
             ),
             GetPage(
               name: '/addAccount',
-              page: () => AddAccount(),
+              page: () => const AddAccount(),
             ),
             GetPage(
               name: '/roles',
-              page: () => RolesPage(),
+              page: () => const RolesPage(),
             ),
             GetPage(
               name: "/search",
@@ -150,23 +150,23 @@ class MyApp extends StatelessWidget {
             // GetPage(name: "/roomSetting", page: () => RoomSettings()),
             GetPage(
               name: "/favourite",
-              page: () => Favourite(),
+              page: () => const Favourite(),
             ),
             GetPage(
               name: "/trophy",
-              page: () => Trophy(),
+              page: () => const Trophy(),
             ),
             GetPage(
               name: "/changeBackground",
-              page: () => ChangeBackground(),
+              page: () => const ChangeBackground(),
             ),
             GetPage(
               name: "/editBackground",
-              page: () => EditBackground(),
+              page: () => const EditBackground(),
             ),
             GetPage(
               name: "/editPerson",
-              page: () => EditPerson(),
+              page: () => const EditPerson(),
             ),
             GetPage(
               name: "/profile",
@@ -174,15 +174,15 @@ class MyApp extends StatelessWidget {
             ),
             GetPage(
               name: "/editProfile",
-              page: () => EditProfileAccount(),
+              page: () => const EditProfileAccount(),
             ),
             GetPage(
               name: "/mainControllerPanel",
-              page: () => ControlPanel(),
+              page: () => const ControlPanel(),
             ),
             GetPage(
               name: "/changePasswordRoom",
-              page: () => ChangePasswordRoom(),
+              page: () => const ChangePasswordRoom(),
             ),
             GetPage(
               name: "/privateMessageRoom",
@@ -194,52 +194,52 @@ class MyApp extends StatelessWidget {
             ),
             GetPage(
               name: "/postMoment",
-              page: () => PostMoment(),
+              page: () => const PostMoment(),
             ),
             GetPage(
               name: "/viewImage",
-              page: () => ViewImage(),
+              page: () => const ViewImage(),
             ),
             GetPage(
               name: '/previousChat',
-              page: () => PreviosChat(),
+              page: () => const PreviosChat(),
             ),
             GetPage(
               name: "/advancedSettings",
-              page: () => AdvancedSettings(),
+              page: () => const AdvancedSettings(),
             ),
             GetPage(
               name: "/cameraSettings",
-              page: () => CameraSettings(),
+              page: () => const CameraSettings(),
             ),
             GetPage(
               name: "/callSettings",
-              page: () => CallSettings(),
+              page: () => const CallSettings(),
             ),
             GetPage(
               name: "/blockPage",
-              page: () => Blocked(),
+              page: () => const Blocked(),
             ),
             GetPage(
               name: "/viewComments",
-              page: () => ViewComments(),
+              page: () => const ViewComments(),
             ),
             GetPage(
               name: "/editPersonalProfile",
-              page: () => EditPersonalProfile(),
+              page: () => const EditPersonalProfile(),
             ),
             GetPage(
               name: "/privateMessagesSettings",
-              page: () => PrivateMessages(),
+              page: () => const PrivateMessages(),
             ),
             // GetPage(name: "/roomReport", page: () => RoomReport()),
             GetPage(
               name: "/storeDetails",
-              page: () => StoreDetails(),
+              page: () => const StoreDetails(),
             ),
             GetPage(
               name: "/editRole",
-              page: () => EditRole(),
+              page: () => const EditRole(),
             ),
           ],
           title: 'First Method',
