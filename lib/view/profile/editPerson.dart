@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../chat/appBar.dart';
+import '../widgets/all_app_bar.dart';
 
 var EditProfile = [
   {"name": "تعديل خلفيات الاسم"},

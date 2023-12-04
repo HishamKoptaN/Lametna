@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 // import '../controllers/chat/room%20managment/roles/EditRolesController.dart';
 import '../../../../controllers/chat/room managment/roles/editRoleController.dart';
-import '../../appBar.dart';
+import '../../../widgets/all_app_bar.dart';
 
 var user = [
   "ممبر",

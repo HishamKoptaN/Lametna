@@ -13,7 +13,7 @@ import 'package:get/get.dart';
 
 import '../../../controllers/chat/room managment/advancedSettingsController.dart';
 import '../../../controllers/chat/roomPageSettingsController.dart';
-import '../appBar.dart';
+import '../../widgets/all_app_bar.dart';
 
 class AdvancedSettings extends StatelessWidget {
   const AdvancedSettings({Key? key}) : super(key: key);

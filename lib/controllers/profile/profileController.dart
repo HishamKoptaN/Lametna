@@ -1,10 +1,10 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-
-import '../userData/userCredentials.dart';
-import '../userData/variables.dart';
+import 'package:lametna/controllers/userData/userCredentials.dart';
+import 'package:lametna/controllers/userData/variables.dart';
 
 class ProfileController extends GetxController {
   List roles = [];
@@ -30,8 +30,10 @@ class ProfileController extends GetxController {
       print(dataBody);
       isLoading = false;
       update();
-      // roles.add(data["data"])
-      // print(json.decode(response.body));
+      roles.add(data["data"]);
+      if (kDebugMode) {
+        print(json.decode(response.body));
+      }
     }
   }
 

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../controllers/chat/room managment/roomSettingsController.dart';
 import '../../../controllers/userData/variables.dart';
-import '../appBar.dart';
+import '../../widgets/all_app_bar.dart';
 import 'side pages/callSettings.dart';
 import 'side pages/custom_expansion.dart';
 

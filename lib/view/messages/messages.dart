@@ -1,19 +1,21 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_interpolation_to_compose_strings
 
-import 'dart:async';
+import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
-import '../../controllers/side pages/messagesController.dart';
+import 'package:lametna/controllers/messages/messagesController.dart';
+import 'package:lametna/controllers/userData/userCredentials.dart';
+import 'package:lametna/controllers/userData/variables.dart';
 
 class Messages extends StatelessWidget {
-  final MessagesController messagesController = MessagesController();
-
   Messages({Key? key}) : super(key: key);
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
   var images = [
     "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80",
     "https://engineering.unl.edu/images/staff/Kayla-Person.jpg",
@@ -107,29 +109,20 @@ class Messages extends StatelessWidget {
               ),
             ),
             actions: [
-              Image.network(
+              Image.asset(
                 "assets/images/trophy.png",
                 width: 55.w,
                 height: 30.h,
               ),
               IconButton(
-                  onPressed: () {
+                onPressed: () {
+                  if (kDebugMode) {
                     print("object");
-                    _scaffoldKey.currentState!.openEndDrawer();
-                  },
-                  icon: Icon(Icons.menu)),
-              Image.network(
-                "assets/images/trophy.png",
-                width: 55.w,
-                height: 30.h,
+                  }
+                  _scaffoldKey.currentState!.openEndDrawer();
+                },
+                icon: Icon(Icons.menu),
               ),
-              IconButton(
-                  onPressed: () {
-                    print("object");
-                    Scaffold.of(context).openDrawer();
-                    _scaffoldKey.currentState!.openEndDrawer();
-                  },
-                  icon: Icon(Icons.menu)),
             ],
           ),
         ),
@@ -141,7 +134,7 @@ class Messages extends StatelessWidget {
             child: SizedBox(
               height: 50.h,
               child: GetBuilder<MessagesController>(
-                init: messagesController,
+                init: MessagesController(),
                 builder: (controller) {
                   return TextFormField(
                     controller: controller.searchController,
@@ -152,12 +145,136 @@ class Messages extends StatelessWidget {
                       fontSize: 15.sp,
                       color: Colors.black,
                     ),
-                    // ... (متابعة باقي الكود)
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
+                      hintText: "بحث",
+                      hintStyle: TextStyle(
+                        fontSize: 15.sp,
+                        // color: Colors.grey,s
+                      ),
+
+                      prefixIcon: Icon(
+                        Icons.search,
+                        size: 20.sp,
+                        color: Color(0xff43D0CA),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.r),
+                        borderSide: BorderSide(
+                          color: Color(0xff43D0CA),
+                          width: 1,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.r),
+                        borderSide: BorderSide(
+                          color: Color(0xff43D0CA),
+                          width: 1,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.r),
+                        borderSide: BorderSide(
+                          color: Color(0xff43D0CA),
+                          width: 1,
+                        ),
+                      ),
+                      // filled: true,
+                      // fillColor: Colors.grey[200],
+                    ),
                   );
                 },
               ),
             ),
           ),
+          Stack(
+            children: [
+              GetBuilder<MessagesController>(
+                builder: (controller) => FutureBuilder(
+                  future: controller.getData(),
+                  builder: (context, snapshot) {
+                    return StreamBuilder(
+                      stream: controller.peopleMessagedController.stream,
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData == false) {
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        } else {
+                          return ListView.builder(
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) => userMessageBuilder(
+                              imageURL +
+                                  snapshot.data["participants"][index]
+                                      ["participant_name"] +
+                                  ".jpeg",
+                              snapshot.data["participants"][index]
+                                  ["participant_name"],
+                              snapshot.data["participants"][index]
+                                  ["participant_id"],
+                              snapshot.data["participants"][index]
+                                  ["last_message"],
+                            ),
+
+                            // Text(
+                            //   snapshot.data["participants"][index]["participant_name"]
+                            //       .toString(),
+                            //   style: TextStyle(color: Colors.black),
+                            // ),
+                            itemCount: snapshot.data["participants"].length,
+                          );
+                        }
+                      },
+                    );
+                  },
+                ),
+              ),
+              GetBuilder<MessagesController>(
+                builder: (controller) {
+                  return controller.searchController.text != ""
+                      ? Container(
+                          color: Colors.white,
+                          height: Get.height,
+                          width: Get.width,
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) => controller
+                                            .data[index]["username"] !=
+                                        userName &&
+                                    controller.data[index]["type"] == ""
+                                ? GestureDetector(
+                                    onTap: () {
+                                      // print(controller.data[index]["type"]);
+                                      controller.searchController.clear();
+                                      Get.toNamed("/privateMessage",
+                                          arguments: [
+                                            controller.data[index]["image"],
+                                            controller.data[index]["username"],
+                                            controller.data[index]["userid"]
+                                          ]);
+                                    },
+                                    child: Card(
+                                      margin: EdgeInsets.symmetric(
+                                          horizontal: 20.w, vertical: 10.h),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(12.sp),
+                                        child: Text(
+                                          controller.data[index]["username"]
+                                              .toString(),
+                                          style: TextStyle(color: Colors.black),
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                : SizedBox(),
+                            itemCount: controller.data.length,
+                          ),
+                        )
+                      : SizedBox();
+                },
+              ),
+            ],
+          )
         ],
       ),
     );
@@ -274,36 +391,35 @@ class Messages extends StatelessWidget {
       // barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          actionsAlignment: MainAxisAlignment.center,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(20.r),
+            actionsAlignment: MainAxisAlignment.center,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(20.r),
+              ),
             ),
-          ),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: [
-                Icon(
-                  Icons.check_box_outlined,
-                  color: Colors.greenAccent,
-                  size: 50.sp,
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Text(
-                  "تم حذف الدردشة بناج",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                      fontFamily: 'Portada'),
-                ),
-              ],
-            ),
-          ),
-        );
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: [
+                  Icon(
+                    Icons.check_box_outlined,
+                    color: Colors.greenAccent,
+                    size: 50.sp,
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Text(
+                    "تم حذف الدردشة بناج",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontFamily: 'Portada'),
+                  ),
+                ],
+              ),
+            ));
       },
     );
   }

@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../controllers/userData/userCredentials.dart';
 import '../../controllers/userData/variables.dart';
-import '../chat/appBar.dart';
+import '../widgets/all_app_bar.dart';
 
 var l = [
   "تعديل خلفيات الاسم",

@@ -38,12 +38,7 @@ Widget homeDrawer() => Drawer(
                       size: 30.sp,
                     ),
                     () {
-                      Navigator.push(
-                        context as BuildContext,
-                        MaterialPageRoute(
-                          builder: (context) => Profile(),
-                        ),
-                      );
+                      Get.toNamed("/profile");
                     },
                   )
                 : const SizedBox(),
@@ -74,7 +69,9 @@ Widget homeDrawer() => Drawer(
                 width: 25.w,
                 height: 25.h,
               ),
-              () {},
+              () {
+                Get.toNamed("/store");
+              },
             ),
             drawerItem(
               'الدعم الفني',

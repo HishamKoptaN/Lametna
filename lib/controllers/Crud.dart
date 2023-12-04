@@ -3,7 +3,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import '../controllers/userData/variables.dart';
+import 'package:lametna/controllers/userData/variables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Crud {

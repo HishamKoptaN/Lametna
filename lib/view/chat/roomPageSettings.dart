@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 import '../../controllers/chat/roomPageSettingsController.dart';
-import 'appBar.dart';
+import '../widgets/all_app_bar.dart';
 
 class RoomSettingsPage extends StatelessWidget {
   @override
@@ -46,79 +46,108 @@ class RoomSettingsPage extends StatelessWidget {
                 ),
               ),
               GetBuilder<RoomsSettingPageController>(
-                  init: RoomsSettingPageController(),
-                  builder: (controller) {
-                    return Padding(
-                      padding: EdgeInsets.only(right: 20.w),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 10.w),
-                            child: SizedBox(
-                              width: 300.w,
-                              child: Slider(
-                                  activeColor: Color(0xff43d0ca),
-                                  inactiveColor: Colors.grey[300],
-                                  value: controller.sliderValue.toDouble(),
-                                  min: 10,
-                                  max: 30,
-                                  onChanged: (value) {
-                                    controller.updateSliderValue(value);
-                                  }),
-                            ),
+                init: RoomsSettingPageController(),
+                builder: (controller) {
+                  return Padding(
+                    padding: EdgeInsets.only(right: 20.w),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 10.w),
+                          child: SizedBox(
+                            width: 300.w,
+                            child: Slider(
+                                activeColor: Color(0xff43d0ca),
+                                inactiveColor: Colors.grey[300],
+                                value: controller.sliderValue.toDouble(),
+                                min: 10,
+                                max: 30,
+                                onChanged: (value) {
+                                  controller.updateSliderValue(value);
+                                }),
                           ),
-                          Row(
-                            children: [
-                              Container(
-                                padding: EdgeInsets.all(1.5),
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      width: 1.0,
-                                      color: const Color(0xff707070)),
-                                ),
-                                child: Text(
-                                  controller.sliderValue.toString(),
-                                  textDirection: TextDirection.rtl,
-                                  style: TextStyle(
-                                    color: Color(0xff707070),
-                                    fontSize: 12.sp,
-                                    fontFamily: "Segoe UI",
-                                  ),
-                                ),
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(1.5),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    width: 1.0, color: const Color(0xff707070)),
                               ),
-                              Text(
-                                "حجم الخط:",
+                              child: Text(
+                                controller.sliderValue.toString(),
                                 textDirection: TextDirection.rtl,
                                 style: TextStyle(
                                   color: Color(0xff707070),
-                                  fontSize: 15.sp,
+                                  fontSize: 12.sp,
                                   fontFamily: "Segoe UI",
                                 ),
                               ),
-                            ],
+                            ),
+                            Text(
+                              "حجم الخط:",
+                              textDirection: TextDirection.rtl,
+                              style: TextStyle(
+                                color: Color(0xff707070),
+                                fontSize: 15.sp,
+                                fontFamily: "Segoe UI",
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+              GetBuilder<RoomsSettingPageController>(
+                builder: (controller) {
+                  return Padding(
+                    padding: EdgeInsets.only(right: 20.w),
+                    child: SizedBox(
+                      height: 25.h,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Switch(
+                            value: controller.isBold,
+                            onChanged: (value) {
+                              controller.changeBold();
+                            },
+                          ),
+                          Text(
+                            "خط عريض",
+                            textDirection: TextDirection.rtl,
+                            style: TextStyle(
+                              color: Color(0xff707070),
+                              fontSize: 15.sp,
+                              fontFamily: "Segoe UI",
+                            ),
                           ),
                         ],
                       ),
-                    );
-                  }),
-              GetBuilder<RoomsSettingPageController>(builder: (controller) {
-                return Padding(
-                  padding: EdgeInsets.only(right: 20.w),
-                  child: SizedBox(
-                    height: 25.h,
+                    ),
+                  );
+                },
+              ),
+              GetBuilder<RoomsSettingPageController>(
+                builder: (controller) {
+                  return Padding(
+                    padding: EdgeInsets.only(right: 20.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Switch(
-                          value: controller.isBold,
+                          value: controller.isItalic,
                           onChanged: (value) {
-                            controller.changeBold();
+                            controller.changeItalic();
                           },
                         ),
                         Text(
-                          "خط عريض",
+                          "خط مائل  ",
                           textDirection: TextDirection.rtl,
                           style: TextStyle(
                             color: Color(0xff707070),
@@ -128,34 +157,9 @@ class RoomSettingsPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                  ),
-                );
-              }),
-              GetBuilder<RoomsSettingPageController>(builder: (controller) {
-                return Padding(
-                  padding: EdgeInsets.only(right: 20.w),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Switch(
-                        value: controller.isItalic,
-                        onChanged: (value) {
-                          controller.changeItalic();
-                        },
-                      ),
-                      Text(
-                        "خط مائل  ",
-                        textDirection: TextDirection.rtl,
-                        style: TextStyle(
-                          color: Color(0xff707070),
-                          fontSize: 15.sp,
-                          fontFamily: "Segoe UI",
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              }),
+                  );
+                },
+              ),
               Divider(
                 color: Color(0xffA7A7A7),
                 thickness: 1.h,
@@ -173,48 +177,49 @@ class RoomSettingsPage extends StatelessWidget {
                           context: context,
                           builder: (context) =>
                               GetBuilder<RoomsSettingPageController>(
-                                  builder: (controller) {
-                            return AlertDialog(
-                              content: SingleChildScrollView(
-                                child: ColorPicker(
-                                  // hexInputBar: true,
-                                  // hexInputController:
-                                  //     controller.hexaInputController,
-                                  pickerAreaHeightPercent: 0.9,
-                                  pickerAreaBorderRadius: BorderRadius.all(
-                                    Radius.circular(360.r),
-                                  ),
-                                  showLabel: false,
-                                  paletteType: PaletteType.hsl,
-                                  pickerColor: controller.pickerColor,
+                            builder: (controller) {
+                              return AlertDialog(
+                                content: SingleChildScrollView(
+                                  child: ColorPicker(
+                                    // hexInputBar: true,
+                                    // hexInputController:
+                                    //     controller.hexaInputController,
+                                    pickerAreaHeightPercent: 0.9,
+                                    pickerAreaBorderRadius: BorderRadius.all(
+                                      Radius.circular(360.r),
+                                    ),
+                                    showLabel: false,
+                                    paletteType: PaletteType.hsl,
+                                    pickerColor: controller.pickerColor,
 
-                                  onColorChanged: (value) {
-                                    print(value);
-                                    controller.updatePickerColor(value);
-                                  },
-                                ),
-                              ),
-                              actions: [
-                                Center(
-                                  child: TextButton(
-                                    onPressed: () {
-                                      //
-                                      controller.changeFontColor();
-                                      Navigator.of(context).pop();
+                                    onColorChanged: (value) {
+                                      print(value);
+                                      controller.updatePickerColor(value);
                                     },
-                                    child: Text(
-                                      "تم",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 15.sp,
-                                        fontFamily: "Segoe UI",
+                                  ),
+                                ),
+                                actions: [
+                                  Center(
+                                    child: TextButton(
+                                      onPressed: () {
+                                        //
+                                        controller.changeFontColor();
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: Text(
+                                        "تم",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 15.sp,
+                                          fontFamily: "Segoe UI",
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            );
-                          }),
+                                ],
+                              );
+                            },
+                          ),
                         );
                       },
                       child: GetBuilder<RoomsSettingPageController>(
@@ -334,74 +339,74 @@ class RoomSettingsPage extends StatelessWidget {
                 ),
               ),
               GetBuilder<RoomsSettingPageController>(
-                  init: RoomsSettingPageController(),
-                  builder: (controller) {
-                    return Column(
-                        children: [
-                      "رفض جميع الرسائل الخاصة",
-                      "قبول الرسائل الخاصة من الخاصة من الأعضاء والمسجلين فقط",
-                      "قبول الرسائل الخاصة من الأعضاء فقط",
-                    ]
-                            .toList()
-                            .map((e) => radioBuilder(controller, e))
-                            .toList());
-                  }),
+                init: RoomsSettingPageController(),
+                builder: (controller) {
+                  return Column(
+                      children: [
+                    "رفض جميع الرسائل الخاصة",
+                    "قبول الرسائل الخاصة من الخاصة من الأعضاء والمسجلين فقط",
+                    "قبول الرسائل الخاصة من الأعضاء فقط",
+                  ].toList().map((e) => radioBuilder(controller, e)).toList());
+                },
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
-                      onTap: () {
-                        // Get.toNamed('/VIPRoom');
-                        //  controller.changeRoomStatus();
-                      },
+                    onTap: () {
+                      // Get.toNamed('/VIPRoom');
+                      //  controller.changeRoomStatus();
+                    },
+                    child: SizedBox(
+                      width: 96.w,
+                      height: 37.h,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.r),
+                          color: Color(0xFFDA8080),
+                        ),
+                        child: Text(
+                          "خروج",
+                          // controller.roomStatus
+                          //     ? 'الروم الحديث'
+                          //     : "مظهر قديم",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 15.sp,
+                              fontFamily: "Portada",
+                              color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      // Get.toNamed('/VIPRoom');
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20),
                       child: SizedBox(
                         width: 96.w,
                         height: 37.h,
                         child: Container(
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.r),
-                            color: Color(0xFFDA8080),
+                            borderRadius: BorderRadius.circular(15.r),
+                            color: Color(0xFF6BE05B),
                           ),
-                          child: Text(
-                            "خروج",
-                            // controller.roomStatus
-                            //     ? 'الروم الحديث'
-                            //     : "مظهر قديم",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: 15.sp,
-                                fontFamily: "Portada",
-                                color: Colors.white),
-                          ),
-                        ),
-                      )),
-                  GestureDetector(
-                      onTap: () {
-                        // Get.toNamed('/VIPRoom');
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20),
-                        child: SizedBox(
-                          width: 96.w,
-                          height: 37.h,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15.r),
-                              color: Color(0xFF6BE05B),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "حفظ",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 15.sp,
-                                    fontFamily: "Portada",
-                                    color: Colors.white),
-                              ),
+                          child: Center(
+                            child: Text(
+                              "حفظ",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontSize: 15.sp,
+                                  fontFamily: "Portada",
+                                  color: Colors.white),
                             ),
                           ),
                         ),
-                      )),
+                      ),
+                    ),
+                  ),
                 ],
               ),
               SizedBox(
@@ -416,24 +421,25 @@ class RoomSettingsPage extends StatelessWidget {
 
   SizedBox radioBuilder(RoomsSettingPageController controller, String text) {
     return SizedBox(
-        height: 50.h,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text(text,
-                textDirection: TextDirection.rtl,
-                style: TextStyle(
-                  color: Color(0xFF707070),
-                )),
-            Radio(
-              value: controller.value,
-              groupValue: controller.value,
-              onChanged: (value) {
-                controller.RadioStatus();
-              },
-            ),
-          ],
-        ));
+      height: 50.h,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Text(text,
+              textDirection: TextDirection.rtl,
+              style: TextStyle(
+                color: Color(0xFF707070),
+              )),
+          Radio(
+            value: controller.value,
+            groupValue: controller.value,
+            onChanged: (value) {
+              controller.RadioStatus();
+            },
+          ),
+        ],
+      ),
+    );
   }
 
   Widget switchmethod(
@@ -446,18 +452,20 @@ class RoomSettingsPage extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            GetBuilder<RoomsSettingPageController>(builder: (controller) {
-              return Switch(
-                onChanged: (value) {
-                  controller.toggleSwitch(value);
-                },
-                value: controller.isSwitched,
-                activeColor: Colors.blue,
-                activeTrackColor: Colors.blue,
-                inactiveThumbColor: Colors.white,
-                inactiveTrackColor: Colors.black45,
-              );
-            }),
+            GetBuilder<RoomsSettingPageController>(
+              builder: (controller) {
+                return Switch(
+                  onChanged: (value) {
+                    controller.toggleSwitch(value);
+                  },
+                  value: controller.isSwitched,
+                  activeColor: Colors.blue,
+                  activeTrackColor: Colors.blue,
+                  inactiveThumbColor: Colors.white,
+                  inactiveTrackColor: Colors.black45,
+                );
+              },
+            ),
             Text(
               text,
               textDirection: TextDirection.rtl,

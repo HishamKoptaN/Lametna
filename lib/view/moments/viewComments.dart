@@ -8,8 +8,8 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../controllers/chat/moments/viewCommentsController.dart';
-import '../../../controllers/userData/variables.dart';
+import '../../controllers/chat/moments/viewCommentsController.dart';
+import '../../controllers/userData/variables.dart';
 
 class ViewComments extends StatelessWidget {
   const ViewComments({Key? key}) : super(key: key);

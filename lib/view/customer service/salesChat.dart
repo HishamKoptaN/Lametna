@@ -6,7 +6,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../chat/appBar.dart';
+import '../widgets/all_app_bar.dart';
 
 class SalesChat extends StatelessWidget {
   const SalesChat({Key? key}) : super(key: key);

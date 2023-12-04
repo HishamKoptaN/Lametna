@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../controllers/chat/room managment/roomSettingsController.dart';
-import '../../appBar.dart';
+import '../../../widgets/all_app_bar.dart';
 
 class CameraSettings extends StatelessWidget {
   const CameraSettings({Key? key}) : super(key: key);

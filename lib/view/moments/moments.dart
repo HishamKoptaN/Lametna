@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../../controllers/chat/moments/postMomentController.dart';
-import '../../../controllers/userData/userCredentials.dart';
-import '../../../controllers/userData/variables.dart';
-import '../appBar.dart';
+import '../../controllers/chat/moments/postMomentController.dart';
+import '../../controllers/userData/userCredentials.dart';
+import '../../controllers/userData/variables.dart';
+import '../widgets/all_app_bar.dart';
 import 'viewComments.dart';
 
 class Moments extends StatelessWidget {

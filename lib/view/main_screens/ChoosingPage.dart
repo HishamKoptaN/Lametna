@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import 'LoginPage.dart';
+import '../LoginPage.dart';
 
 class choosingPage extends StatefulWidget {
   @override
@@ -14,18 +14,16 @@ class choosingPage extends StatefulWidget {
 
 class _choosingPageState extends State<choosingPage> {
   @override
-  void initState() {
-    super.initState();
-    new Future.delayed(
-      Duration(seconds: 3),
-      () => Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => LoginPage(),
-        ),
-      ),
-    );
-  }
+  // void initState() {
+  //   super.initState();
+  //   new Future.delayed(
+  //     Duration(seconds: 3),
+  //     () => Navigator.push(
+  //       context,
+  //       MaterialPageRoute(builder: (context) => LoginPage()),
+  //     ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {

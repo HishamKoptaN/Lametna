@@ -56,26 +56,47 @@ String customerServiceMessages =
 String toggleMicUrl = baseURL + 'users/micIs.php';
 String toggleHands = baseURL + 'users/handIs.php';
 String toggleSpeaker = baseURL + 'users/speakerIs.php';
+
 String toggleMute = baseURL + 'users/MuteIs.php';
+
 String toggleCameraUrl = baseURL + 'users/cameraIs.php';
+
 String getPrivateMessageRoom = baseURL + 'messages/getMessageUserRoom.php';
+
 String sendPrivateMessageRoom = baseURL + 'messages/messageUserRoom.php';
+
 String roomInfoUser = baseURL + 'rooms/roomInfoUser.php';
+
 String inRoomListOfChat = baseURL + 'messages/getNameUserMessageInRoom.php';
+
 String messageInRoomStatus = baseURL + 'rooms/sendTextInRoom.php';
+
 String sendImageInRoom = baseURL + 'messages/sendImageInRooms.php';
+
 String addMaster = baseURL + 'rooms/allowAddMasterInRoom.php';
+
 String addStoryWithImage = baseURL + 'stories/storyimage.php';
+
 String addStory = baseURL + 'stories/addStory.php';
+
 String showAllStories = baseURL + '/stories/viewstories.php';
+
 String fontSize = baseURL + 'settingsRoom/fontSizeUser.php';
+
 String toggleBold = baseURL + 'settingsRoom/isBoldUser.php';
+
 String toggleItalic = baseURL + 'settingsRoom/isItalicUser.php';
+
 String getFontSettings = baseURL + 'settingsRoom/viewSettigsRoomUser.php';
+
 String changeFontColorUrl = baseURL + 'settingsRoom/colorUser.php';
+
 String likeStoryUrl = baseURL + 'stories/storyLike.php';
+
 String checkRoomEdit = baseURL + 'rooms/allowEditRoomInRoom.php';
+
 String getBackgrounds = baseURL + 'users/getBackgrounds.php';
+
 String updateBackground = baseURL + 'users/updateUserBackground.php';
 String deleteStoryUrl = baseURL + 'stories/deleteStory.php';
 String getAgoraToken = baseURL + 'agoraRTC/RtcTokenBuilderSample.php';

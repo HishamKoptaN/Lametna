@@ -46,13 +46,8 @@ class Trophy extends StatelessWidget {
             "textColor": Color(0xFFEFA11B),
           }
         ]
-            .map(
-              (e) => _bannerBuilder(
-                e["title"]?.toString() ?? "",
-                (e["gColor"]?.toString() ?? "") as Color,
-                (e["textColor"]?.toString() ?? "") as Color,
-              ),
-            )
+            .map((e) => _bannerBuilder(e["title"] as String,
+                e["gColor"] as Color, e["textColor"] as Color))
             .toList(),
         // _bannerBuilder(
         //     'لوحة صدارة الغرف المميزة', Color(0xFFF792F0), Color(0xFFCC77D9))

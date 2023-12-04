@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import 'appBar.dart';
+import '../widgets/all_app_bar.dart';
 
 class MessagesRoom extends StatelessWidget {
   const MessagesRoom({Key? key}) : super(key: key);

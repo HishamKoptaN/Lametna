@@ -6,6 +6,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   agora_rtc_engine
   emoji_picker_flutter
   firebase_core
+  flutter_secure_storage_windows
   geolocator_windows
   get_mac_address
   iris_method_channel

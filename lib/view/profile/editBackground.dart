@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/userData/userCredentials.dart';
-import '../chat/appBar.dart';
+import '../widgets/all_app_bar.dart';
 
 var EditProfile = [
   {"name": "تغيير الخلفية الاسم"},
@@ -59,7 +59,7 @@ class EditBackground extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Spacer(),
+                            const Spacer(),
                             Padding(
                               padding: EdgeInsets.symmetric(horizontal: 20.w),
                               child: Icon(
@@ -76,7 +76,7 @@ class EditBackground extends StatelessWidget {
                 },
                 separatorBuilder: (context, index) => Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10.0.w),
-                      child: Divider(
+                      child: const Divider(
                         color: Color(0xffDADADC),
                         thickness: 1,
                       ),
@@ -84,7 +84,7 @@ class EditBackground extends StatelessWidget {
                 itemCount: EditProfile.length),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.0.w),
-              child: Divider(
+              child: const Divider(
                 color: Color(0xffDADADC),
                 thickness: 1,
               ),

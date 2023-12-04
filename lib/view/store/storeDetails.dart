@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../controllers/store/storeDetailsController.dart';
 import '../../controllers/userData/variables.dart';
-import '../chat/appBar.dart';
+import '../widgets/all_app_bar.dart';
 import '../side pages/dottedDivider.dart';
 
 StoreDetailsController controller = Get.put(StoreDetailsController());
@@ -17,11 +17,11 @@ class StoreDetails extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: appbarBuilder("المتجر", false),
       body: Container(
-        decoration: BoxDecoration(
-          // borderRadius: BorderRadius.only(
-          //   bottomLeft: Radius.circular(27.r),
-          //   bottomRight: Radius.circular(27.r),
-          // ),
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              // bottomLeft: Radius.circular(27.r),
+              // bottomRight: Radius.circular(27.r),
+              ),
           gradient: LinearGradient(
             colors: [
               Color(0xFFF792F0),
@@ -40,21 +40,21 @@ class StoreDetails extends StatelessWidget {
                     init: StoreDetailsController(),
                     builder: (controller) {
                       return PageView(
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         controller: controller.upperSectionController,
                         children: [
                           PageView(
-                            physics: NeverScrollableScrollPhysics(),
+                            physics: const NeverScrollableScrollPhysics(),
                             controller: controller.roomUpperSectionController,
                             children: [
                               roomStyleBuilder(isColored: true),
                               roomStyleBuilder(isColored: false),
                               roomStyleBuilder(isColored: false),
-                              SizedBox()
+                              const SizedBox()
                             ],
                           ),
                           PageView(
-                            physics: NeverScrollableScrollPhysics(),
+                            physics: const NeverScrollableScrollPhysics(),
                             controller: controller.namesUpperSectionController,
                             children: [
                               nameStyleBuilder(index: 0),
@@ -71,13 +71,13 @@ class StoreDetails extends StatelessWidget {
                               padding: EdgeInsets.symmetric(horizontal: 20.w),
                               child: Row(
                                 children: [
-                                  Center(
+                                  const Center(
                                     child: Icon(
                                       Icons.verified,
                                       color: Color(0xFFF8BA33),
                                     ),
                                   ),
-                                  Spacer(),
+                                  const Spacer(),
                                   Text(
                                     "lametna",
                                     style: TextStyle(
@@ -89,7 +89,7 @@ class StoreDetails extends StatelessWidget {
                                   SizedBox(
                                     width: 10.w,
                                   ),
-                                  Icon(Icons.person),
+                                  const Icon(Icons.person),
                                 ],
                               ),
                             ),
@@ -98,7 +98,7 @@ class StoreDetails extends StatelessWidget {
                             // color: Colors.purple,
                             padding: EdgeInsets.all(30.sp),
                             child: controller.selectedFrameImage == ""
-                                ? SizedBox()
+                                ? const SizedBox()
                                 : Stack(
                                     alignment: Alignment.bottomCenter,
                                     children: [
@@ -112,7 +112,7 @@ class StoreDetails extends StatelessWidget {
                             // color: Colors.purple,
                             padding: EdgeInsets.all(30.sp),
                             child: controller.selectedEntryImage == ""
-                                ? SizedBox()
+                                ? const SizedBox()
                                 : Stack(
                                     alignment: Alignment.bottomCenter,
                                     children: [
@@ -124,7 +124,7 @@ class StoreDetails extends StatelessWidget {
                           ),
                           Container(
                             child: PageView(
-                              physics: NeverScrollableScrollPhysics(),
+                              physics: const NeverScrollableScrollPhysics(),
                               controller: controller.vipUpperSectionController,
                               children: [
                                 Container(
@@ -167,7 +167,7 @@ class StoreDetails extends StatelessWidget {
                         return SizedBox(
                           height: 570.h,
                           child: PageView(
-                            physics: NeverScrollableScrollPhysics(),
+                            physics: const NeverScrollableScrollPhysics(),
 
                             controller: controller.pageController,
                             // onPageChanged: (index) {
@@ -201,7 +201,7 @@ class StoreDetails extends StatelessWidget {
                                             vertical: 20.h, horizontal: 25.w),
                                         child: PageView(
                                           physics:
-                                              NeverScrollableScrollPhysics(),
+                                              const NeverScrollableScrollPhysics(),
                                           controller: controller.roomController,
                                           children: [
                                             roomOfferBuilder(
@@ -273,7 +273,7 @@ class StoreDetails extends StatelessWidget {
                                             vertical: 20.h, horizontal: 25.w),
                                         child: PageView(
                                           physics:
-                                              NeverScrollableScrollPhysics(),
+                                              const NeverScrollableScrollPhysics(),
                                           controller:
                                               controller.namesController,
                                           children: [
@@ -354,7 +354,7 @@ class StoreDetails extends StatelessWidget {
                                   builder: (context, snapshot) {
                                     if (snapshot.connectionState ==
                                         ConnectionState.waiting) {
-                                      return Center(
+                                      return const Center(
                                         child: CircularProgressIndicator(),
                                       );
                                     }
@@ -392,10 +392,10 @@ class StoreDetails extends StatelessWidget {
                                           ),
                                         ),
                                         if (controller.selectedFrameImage == "")
-                                          SizedBox()
+                                          const SizedBox()
                                         else
                                           Container(
-                                            color: Color(0xFFFABD63),
+                                            color: const Color(0xFFFABD63),
                                             width: double.infinity,
                                             height: 60.h,
                                             padding: EdgeInsets.symmetric(
@@ -428,7 +428,7 @@ class StoreDetails extends StatelessWidget {
                                                     ),
                                                   ),
                                                 ),
-                                                Spacer(),
+                                                const Spacer(),
                                                 Container(
                                                   decoration: BoxDecoration(
                                                     color: Colors.white,
@@ -476,7 +476,7 @@ class StoreDetails extends StatelessWidget {
                                   builder: (context, snapshot) {
                                     if (snapshot.connectionState ==
                                         ConnectionState.waiting) {
-                                      return Center(
+                                      return const Center(
                                         child: CircularProgressIndicator(),
                                       );
                                     }
@@ -494,7 +494,8 @@ class StoreDetails extends StatelessWidget {
                                             padding: EdgeInsets.symmetric(
                                                 horizontal: 15.w,
                                                 vertical: 10.h),
-                                            physics: BouncingScrollPhysics(),
+                                            physics:
+                                                const BouncingScrollPhysics(),
                                             itemCount:
                                                 controller.entriesList.length,
                                             gridDelegate:
@@ -516,10 +517,10 @@ class StoreDetails extends StatelessWidget {
                                           ),
                                         ),
                                         if (controller.selectedEntryImage == "")
-                                          SizedBox()
+                                          const SizedBox()
                                         else
                                           Container(
-                                            color: Color(0xFFFABD63),
+                                            color: const Color(0xFFFABD63),
                                             width: double.infinity,
                                             height: 60.h,
                                             padding: EdgeInsets.symmetric(
@@ -551,7 +552,7 @@ class StoreDetails extends StatelessWidget {
                                                     ),
                                                   ),
                                                 ),
-                                                Spacer(),
+                                                const Spacer(),
                                                 Container(
                                                   decoration: BoxDecoration(
                                                     color: Colors.white,
@@ -852,7 +853,7 @@ class StoreDetails extends StatelessWidget {
             color: c.selectedFrameImage == imageUrl ||
                     c.selectedEntryImage == imageUrl
                 ? Colors.yellow.withOpacity(.70)
-                : Color(0xFFEEE3E3),
+                : const Color(0xFFEEE3E3),
             borderRadius: BorderRadius.circular(15.r),
           ),
           child: Column(
@@ -861,7 +862,7 @@ class StoreDetails extends StatelessWidget {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 15.w),
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     colors: [
                       Color(0xFFFABD63),
                       Color(0xFFF792F0),
@@ -892,7 +893,7 @@ class StoreDetails extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 3.h),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     colors: [
                       Color(0xFFFABD63),
                       Color(0xFFF792F0),
@@ -945,7 +946,7 @@ class StoreDetails extends StatelessWidget {
             // width: 100.w,
             decoration: BoxDecoration(
               // color: Color(0xFFFABB64),
-              color: isColored ? Color(0xFFFABB64) : Colors.white,
+              color: isColored ? const Color(0xFFFABB64) : Colors.white,
               boxShadow: isColored
                   ? null
                   : [
@@ -953,7 +954,8 @@ class StoreDetails extends StatelessWidget {
                         color: Colors.grey.withOpacity(0.5),
                         blurRadius: 10.r,
                         spreadRadius: 3.r,
-                        offset: Offset(0, 3), // changes position of shadow
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
                       ),
                     ],
               borderRadius: BorderRadius.circular(20.r),
@@ -994,14 +996,14 @@ class StoreDetails extends StatelessWidget {
                           Container(
                             width: 17.sp,
                             height: 17.sp,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               image: DecorationImage(
                                 image: AssetImage("assets/icons/waves.gif"),
                                 fit: BoxFit.fill,
                               ),
                             ),
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Text(
                             "Lametna chat",
                             style: TextStyle(
@@ -1057,7 +1059,7 @@ class StoreDetails extends StatelessWidget {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Color(0xFFFABD63),
+              color: const Color(0xFFFABD63),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20.r),
                 topRight: Radius.circular(20.r),
@@ -1088,7 +1090,7 @@ class StoreDetails extends StatelessWidget {
                           child: Container(
                             padding: EdgeInsets.symmetric(vertical: 5.h),
                             width: 280.w,
-                            color: Color(0xFFDADADC),
+                            color: const Color(0xFFDADADC),
                             child: Text(
                               "${prices![i]}$e",
                               textAlign: TextAlign.center,
@@ -1107,7 +1109,7 @@ class StoreDetails extends StatelessWidget {
                   child: Container(
                     padding: EdgeInsets.symmetric(vertical: 5.h),
                     width: 280.w,
-                    color: Color(0xFFFDE742).withOpacity(.35),
+                    color: const Color(0xFFFDE742).withOpacity(.35),
                     child: RichText(
                       text: TextSpan(
                         // text: ,
@@ -1120,7 +1122,7 @@ class StoreDetails extends StatelessWidget {
                           TextSpan(
                             text: roomPrice.toString(),
                           ),
-                          TextSpan(
+                          const TextSpan(
                             text: " دولار كل 3 أشهر ",
                           ),
                         ],
@@ -1142,7 +1144,7 @@ class StoreDetails extends StatelessWidget {
                     width: 100.w,
                     decoration: BoxDecoration(
                       // color: Color(0xFF6EE1DC),
-                      gradient: LinearGradient(
+                      gradient: const LinearGradient(
                         colors: [
                           Color(0xFFFABD63),
                           Color(0xFFF792F0),
@@ -1156,7 +1158,8 @@ class StoreDetails extends StatelessWidget {
                           color: Colors.grey.withOpacity(0.5),
                           blurRadius: 10.r,
                           spreadRadius: 3.r,
-                          offset: Offset(0, 3), // changes position of shadow
+                          offset:
+                              const Offset(0, 3), // changes position of shadow
                         ),
                       ],
                     ),
@@ -1206,7 +1209,7 @@ class StoreDetails extends StatelessWidget {
                         height: 5.h,
                         decoration: BoxDecoration(
                           // color: Colors.white,
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                             colors: [
                               Color(0xFFFABD63),
                               Color(0xFFF792F0),
@@ -1217,7 +1220,7 @@ class StoreDetails extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20.r),
                         ),
                       )
-                    : SizedBox()
+                    : const SizedBox()
               ],
             ),
           );
@@ -1250,7 +1253,7 @@ class StoreDetails extends StatelessWidget {
                         height: 5.h,
                         decoration: BoxDecoration(
                           // color: Colors.white,
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                             colors: [
                               Color(0xFFFABD63),
                               Color(0xFFF792F0),
@@ -1261,7 +1264,7 @@ class StoreDetails extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20.r),
                         ),
                       )
-                    : SizedBox()
+                    : const SizedBox()
               ],
             ),
           );
@@ -1294,7 +1297,7 @@ class StoreDetails extends StatelessWidget {
                         height: 5.h,
                         decoration: BoxDecoration(
                           // color: Colors.white,
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                             colors: [
                               Color(0xFFFABD63),
                               Color(0xFFF792F0),
@@ -1305,7 +1308,7 @@ class StoreDetails extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20.r),
                         ),
                       )
-                    : SizedBox()
+                    : const SizedBox()
               ],
             ),
           );
@@ -1338,7 +1341,7 @@ class StoreDetails extends StatelessWidget {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Color(0xFFFABD63),
+              color: const Color(0xFFFABD63),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20.r),
                 topRight: Radius.circular(20.r),
@@ -1363,7 +1366,7 @@ class StoreDetails extends StatelessWidget {
                           child: Container(
                             padding: EdgeInsets.symmetric(vertical: 5.h),
                             width: 280.w,
-                            color: Color(0xFFDADADC),
+                            color: const Color(0xFFDADADC),
                             child: Text(
                               "$e",
                               textAlign: TextAlign.center,
@@ -1382,7 +1385,7 @@ class StoreDetails extends StatelessWidget {
                   child: Container(
                     padding: EdgeInsets.symmetric(vertical: 5.h),
                     width: 280.w,
-                    color: Color(0xFFFDE742).withOpacity(.35),
+                    color: const Color(0xFFFDE742).withOpacity(.35),
                     child: RichText(
                       text: TextSpan(
                         // text: ,
@@ -1413,7 +1416,7 @@ class StoreDetails extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 10.w),
                       width: 280.w,
                       height: 80.h,
-                      color: Color(0xFFDADADC),
+                      color: const Color(0xFFDADADC),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1451,13 +1454,13 @@ class StoreDetails extends StatelessWidget {
                                               fontWeight: FontWeight.bold),
                                         ),
                                       )
-                                    : SizedBox()
+                                    : const SizedBox()
                               ],
                             ),
                           ),
                           // Spacer(),
                           isRoot
-                              ? Center(
+                              ? const Center(
                                   child: Icon(
                                     Icons.verified,
                                     color: Color(0xFFF8BA33),
@@ -1479,7 +1482,7 @@ class StoreDetails extends StatelessWidget {
                                               'assets/images/vipBadge.png',
                                               height: 45.sp,
                                               fit: BoxFit.fitHeight)
-                                          : Center(
+                                          : const Center(
                                               child: Icon(
                                                 Icons.verified,
                                                 color: Colors.blue,
@@ -1492,7 +1495,7 @@ class StoreDetails extends StatelessWidget {
                   height: 20.h,
                 ),
                 isDialog
-                    ? SizedBox()
+                    ? const SizedBox()
                     : GestureDetector(
                         // onTap: () => showDialog(
                         //   context: Get.context!,
@@ -1587,7 +1590,7 @@ class StoreDetails extends StatelessWidget {
                           width: 100.w,
                           decoration: BoxDecoration(
                             // color: Color(0xFF6EE1DC),
-                            gradient: LinearGradient(
+                            gradient: const LinearGradient(
                               colors: [
                                 Color(0xFFFABD63),
                                 Color(0xFFF792F0),
@@ -1601,8 +1604,8 @@ class StoreDetails extends StatelessWidget {
                                 color: Colors.grey.withOpacity(0.5),
                                 blurRadius: 10.r,
                                 spreadRadius: 3.r,
-                                offset:
-                                    Offset(0, 3), // changes position of shadow
+                                offset: const Offset(
+                                    0, 3), // changes position of shadow
                               ),
                             ],
                           ),
@@ -1648,7 +1651,8 @@ class StoreDetails extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    border: Border.all(color: Color(0xFFFABD63), width: 3),
+                    border:
+                        Border.all(color: const Color(0xFFFABD63), width: 3),
                     borderRadius: BorderRadius.circular(10.r),
                   ),
                   width: double.infinity,
@@ -1677,7 +1681,8 @@ class StoreDetails extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    border: Border.all(color: Color(0xFFFABD63), width: 3),
+                    border:
+                        Border.all(color: const Color(0xFFFABD63), width: 3),
                     borderRadius: BorderRadius.circular(10.r),
                   ),
                   width: double.infinity,
@@ -1701,7 +1706,8 @@ class StoreDetails extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    border: Border.all(color: Color(0xFFFABD63), width: 3),
+                    border:
+                        Border.all(color: const Color(0xFFFABD63), width: 3),
                     borderRadius: BorderRadius.circular(10.r),
                   ),
                   width: double.infinity,
@@ -1735,12 +1741,13 @@ class StoreDetails extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Color(0xFFFFE048),
+                  color: const Color(0xFFFFE048),
                 ),
-                color:
-                    c.selectedPage == index ? Color(0xFF6EE1DC) : Colors.white,
+                color: c.selectedPage == index
+                    ? const Color(0xFF6EE1DC)
+                    : Colors.white,
                 gradient: c.selectedPage == index
-                    ? LinearGradient(
+                    ? const LinearGradient(
                         colors: [
                           Color(0xFFFABD63),
                           Color(0xFFF792F0),
@@ -1777,7 +1784,7 @@ class StoreDetails extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(
-            color: Color(0xFF43D0CA),
+            color: const Color(0xFF43D0CA),
           ),
           image: index == 0 || index == 1
               ? DecorationImage(
@@ -1803,7 +1810,7 @@ class StoreDetails extends StatelessWidget {
                       : index == 2
                           ? Image.network('assets/images/vipBadge.png',
                               height: 50.sp, fit: BoxFit.fitHeight)
-                          : Icon(
+                          : const Icon(
                               Icons.verified,
                               color: Colors.blue,
                             ),
@@ -1812,9 +1819,9 @@ class StoreDetails extends StatelessWidget {
               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Spacer(),
-                Spacer(),
-                Spacer(),
+                const Spacer(),
+                const Spacer(),
+                const Spacer(),
                 Stack(
                   children: [
                     index == 0
@@ -1830,10 +1837,10 @@ class StoreDetails extends StatelessWidget {
                               foreground: Paint()
                                 ..style = PaintingStyle.stroke
                                 ..strokeWidth = 3
-                                ..color = Color(0xFF91FF00),
+                                ..color = const Color(0xFF91FF00),
                             ),
                           )
-                        : SizedBox(),
+                        : const SizedBox(),
                     Text(
                       "Lametna Chat",
                       style: TextStyle(
@@ -1855,7 +1862,7 @@ class StoreDetails extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
               ],
             ),
 
@@ -1874,7 +1881,7 @@ class StoreDetails extends StatelessWidget {
                         width: 70.sp,
                         fit: BoxFit.fitHeight,
                       )
-                    : SizedBox(),
+                    : const SizedBox(),
               ],
             ),
           ],
@@ -1924,7 +1931,7 @@ class StoreDetails extends StatelessWidget {
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onPressed: () {},
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.close,
                     color: Colors.transparent,
                   ),
@@ -1933,7 +1940,7 @@ class StoreDetails extends StatelessWidget {
             ),
             MySeparator(
               height: 5.h,
-              color: Color(0xFFFABD63),
+              color: const Color(0xFFFABD63),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 30.w),
@@ -1961,11 +1968,11 @@ class StoreDetails extends StatelessWidget {
                                 fontSize: 15.sp,
                               ),
                               decoration: InputDecoration(
-                                fillColor: Color(0xFFE7E7E7),
+                                fillColor: const Color(0xFFE7E7E7),
                                 filled: true,
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Color(0xFFFABD63),
                                     width: 1,
                                   ),
@@ -1975,7 +1982,7 @@ class StoreDetails extends StatelessWidget {
                                     borderSide: BorderSide.none),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: Color(0xFFFABD63), width: 1),
                                 ),
                               ),
@@ -2005,7 +2012,7 @@ class StoreDetails extends StatelessWidget {
                                             horizontal: 10.w, vertical: 7.h),
                                         decoration: ShapeDecoration(
                                           shape: RoundedRectangleBorder(
-                                            side: BorderSide(
+                                            side: const BorderSide(
                                               width: 1.0,
                                               style: BorderStyle.solid,
                                               color: Color(0xFFFABD63),
@@ -2014,7 +2021,7 @@ class StoreDetails extends StatelessWidget {
                                               Radius.circular(20.r),
                                             ),
                                           ),
-                                          color: Color(0xFFE7E7E7),
+                                          color: const Color(0xFFE7E7E7),
                                         ),
                                         child: Directionality(
                                           textDirection: TextDirection.rtl,
@@ -2023,7 +2030,8 @@ class StoreDetails extends StatelessWidget {
                                             isDense: true,
 
                                             value: controller.roomTime,
-                                            icon: Icon(Icons.arrow_drop_down),
+                                            icon: const Icon(
+                                                Icons.arrow_drop_down),
                                             iconSize: 24.sp,
                                             // elevation: 16,
 
@@ -2076,7 +2084,7 @@ class StoreDetails extends StatelessWidget {
                                             horizontal: 10.w, vertical: 7.h),
                                         decoration: ShapeDecoration(
                                           shape: RoundedRectangleBorder(
-                                            side: BorderSide(
+                                            side: const BorderSide(
                                               width: 1.0,
                                               style: BorderStyle.solid,
                                               color: Color(0xFFFABD63),
@@ -2084,7 +2092,7 @@ class StoreDetails extends StatelessWidget {
                                             borderRadius: BorderRadius.all(
                                                 Radius.circular(20.r)),
                                           ),
-                                          color: Color(0xFFE7E7E7),
+                                          color: const Color(0xFFE7E7E7),
                                         ),
                                         child: Directionality(
                                           textDirection: TextDirection.rtl,
@@ -2092,7 +2100,8 @@ class StoreDetails extends StatelessWidget {
                                             isExpanded: true,
                                             isDense: true,
                                             value: controller.roomType,
-                                            icon: Icon(Icons.arrow_drop_down),
+                                            icon: const Icon(
+                                                Icons.arrow_drop_down),
                                             iconSize: 24.sp,
                                             // elevation: 16,
 
@@ -2141,7 +2150,7 @@ class StoreDetails extends StatelessWidget {
                                     horizontal: 10.w, vertical: 7.h),
                                 decoration: ShapeDecoration(
                                   shape: RoundedRectangleBorder(
-                                    side: BorderSide(
+                                    side: const BorderSide(
                                       width: 1.0,
                                       style: BorderStyle.solid,
                                       color: Color(0xFFFABD63),
@@ -2150,7 +2159,7 @@ class StoreDetails extends StatelessWidget {
                                       Radius.circular(20.r),
                                     ),
                                   ),
-                                  color: Color(0xFFE7E7E7),
+                                  color: const Color(0xFFE7E7E7),
                                 ),
                                 child: Directionality(
                                   textDirection: TextDirection.rtl,
@@ -2159,7 +2168,7 @@ class StoreDetails extends StatelessWidget {
                                     isDense: true,
 
                                     value: controller.country,
-                                    icon: Icon(Icons.arrow_drop_down),
+                                    icon: const Icon(Icons.arrow_drop_down),
                                     iconSize: 24.sp,
                                     // elevation: 16,
 
@@ -2208,7 +2217,7 @@ class StoreDetails extends StatelessWidget {
                         ),
                         SizedBox(height: 10.h),
                         Container(
-                          color: Color(0xFFFFFFD9).withOpacity(.51),
+                          color: const Color(0xFFFFFFD9).withOpacity(.51),
                           width: double.infinity,
                           padding: EdgeInsets.symmetric(
                               horizontal: 10.w, vertical: 10.h),
@@ -2229,10 +2238,10 @@ class StoreDetails extends StatelessWidget {
                                     fontSize: 14.sp,
                                   ),
                                   children: [
-                                    TextSpan(
+                                    const TextSpan(
                                         text:
                                             "* يعني الغاء اشتراكك فقدانك لكود الماستر الرئيسي "),
-                                    TextSpan(text: " master Code"),
+                                    const TextSpan(text: " master Code"),
                                   ],
                                 ),
                                 // InlineSpan()
@@ -2247,8 +2256,8 @@ class StoreDetails extends StatelessWidget {
                                     fontSize: 14.sp,
                                   ),
                                   children: [
-                                    TextSpan(text: "* "),
-                                    TextSpan(
+                                    const TextSpan(text: "* "),
+                                    const TextSpan(
                                         text:
                                             " اعطائك اسماء اشرافات أو اسماء روت بكامل الصلاحيات لاشخاص غير معروفين ويسبب بتخريب غرفتك يؤدي لالغاء اشتراكك أو قد يترتب عليك رسوم اضافية لاعادة تفعيل الاشتراك او تصليح الاخطاء"),
                                   ],
@@ -2269,10 +2278,10 @@ class StoreDetails extends StatelessWidget {
                               child: Container(
                                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFfDA8080),
+                                  color: const Color(0xFfDA8080),
                                   borderRadius: BorderRadius.circular(20.r),
                                   border: Border.all(
-                                    color: Color(0xFF43D0CA),
+                                    color: const Color(0xFF43D0CA),
                                   ),
                                 ),
                                 child: Text(
@@ -2309,7 +2318,7 @@ class StoreDetails extends StatelessWidget {
                                         decoration: BoxDecoration(
                                           border: Border(
                                             top: BorderSide(
-                                                color: Color(0xFFFABD63),
+                                                color: const Color(0xFFFABD63),
                                                 width: 1.sp),
                                           ),
                                         ),
@@ -2339,7 +2348,8 @@ class StoreDetails extends StatelessWidget {
                                                 height: 60.h,
                                                 child: VerticalDivider(
                                                   width: 2.sp,
-                                                  color: Color(0xFFFABD63),
+                                                  color:
+                                                      const Color(0xFFFABD63),
                                                 ),
                                               ),
                                             ),
@@ -2371,10 +2381,10 @@ class StoreDetails extends StatelessWidget {
                               child: Container(
                                 padding: EdgeInsets.symmetric(horizontal: 15.w),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFf47A6E5),
+                                  color: const Color(0xFf47A6E5),
                                   borderRadius: BorderRadius.circular(20.r),
                                   border: Border.all(
-                                    color: Color(0xFF43D0CA),
+                                    color: const Color(0xFF43D0CA),
                                   ),
                                 ),
                                 child: Text(
@@ -2438,7 +2448,7 @@ class StoreDetails extends StatelessWidget {
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onPressed: () {},
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.close,
                     color: Colors.transparent,
                   ),
@@ -2447,7 +2457,7 @@ class StoreDetails extends StatelessWidget {
             ),
             MySeparator(
               height: 5.h,
-              color: Color(0xFFFABD63),
+              color: const Color(0xFFFABD63),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 30.w),
@@ -2475,11 +2485,11 @@ class StoreDetails extends StatelessWidget {
                                 fontSize: 15.sp,
                               ),
                               decoration: InputDecoration(
-                                fillColor: Color(0xFFE7E7E7),
+                                fillColor: const Color(0xFFE7E7E7),
                                 filled: true,
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Color(0xFFFABD63),
                                     width: 1,
                                   ),
@@ -2489,7 +2499,7 @@ class StoreDetails extends StatelessWidget {
                                     borderSide: BorderSide.none),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: Color(0xFFFABD63), width: 1),
                                 ),
                               ),
@@ -2513,7 +2523,7 @@ class StoreDetails extends StatelessWidget {
                                     horizontal: 10.w, vertical: 7.h),
                                 decoration: ShapeDecoration(
                                   shape: RoundedRectangleBorder(
-                                    side: BorderSide(
+                                    side: const BorderSide(
                                       width: 1.0,
                                       style: BorderStyle.solid,
                                       color: Color(0xFFFABD63),
@@ -2522,7 +2532,7 @@ class StoreDetails extends StatelessWidget {
                                       Radius.circular(20.r),
                                     ),
                                   ),
-                                  color: Color(0xFFE7E7E7),
+                                  color: const Color(0xFFE7E7E7),
                                 ),
                                 child: Directionality(
                                   textDirection: TextDirection.rtl,
@@ -2531,7 +2541,7 @@ class StoreDetails extends StatelessWidget {
                                     isDense: true,
 
                                     value: controller.roomTime,
-                                    icon: Icon(Icons.arrow_drop_down),
+                                    icon: const Icon(Icons.arrow_drop_down),
                                     iconSize: 24.sp,
                                     // elevation: 16,
 
@@ -2582,11 +2592,11 @@ class StoreDetails extends StatelessWidget {
                                 fontSize: 15.sp,
                               ),
                               decoration: InputDecoration(
-                                fillColor: Color(0xFFE7E7E7),
+                                fillColor: const Color(0xFFE7E7E7),
                                 filled: true,
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Color(0xFFFABD63),
                                     width: 1,
                                   ),
@@ -2596,7 +2606,7 @@ class StoreDetails extends StatelessWidget {
                                     borderSide: BorderSide.none),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: Color(0xFFFABD63), width: 1),
                                 ),
                               ),
@@ -2615,7 +2625,7 @@ class StoreDetails extends StatelessWidget {
                         ),
                         SizedBox(height: 10.h),
                         Container(
-                          color: Color(0xFFFFFFD9).withOpacity(.51),
+                          color: const Color(0xFFFFFFD9).withOpacity(.51),
                           width: double.infinity,
                           padding: EdgeInsets.symmetric(
                               horizontal: 10.w, vertical: 10.h),
@@ -2636,8 +2646,8 @@ class StoreDetails extends StatelessWidget {
                                     fontSize: 14.sp,
                                   ),
                                   children: [
-                                    TextSpan(text: "* "),
-                                    TextSpan(
+                                    const TextSpan(text: "* "),
+                                    const TextSpan(
                                         text:
                                             "يمنع الاشتراك باسم محمي او ملكي شبيه بشكل الأحرف لأي اسم مسجل مسبقا وفي هذه الحالة سيتم حذف اشتراك الاسم وتبديله وخصم مدة  شهرين من تاريخ اشتراك الاسم"),
                                   ],
@@ -2658,10 +2668,10 @@ class StoreDetails extends StatelessWidget {
                               child: Container(
                                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFfDA8080),
+                                  color: const Color(0xFfDA8080),
                                   borderRadius: BorderRadius.circular(20.r),
                                   border: Border.all(
-                                    color: Color(0xFF43D0CA),
+                                    color: const Color(0xFF43D0CA),
                                   ),
                                 ),
                                 child: Text(
@@ -2698,7 +2708,7 @@ class StoreDetails extends StatelessWidget {
                                         decoration: BoxDecoration(
                                           border: Border(
                                             top: BorderSide(
-                                                color: Color(0xFFFABD63),
+                                                color: const Color(0xFFFABD63),
                                                 width: 1.sp),
                                           ),
                                         ),
@@ -2728,7 +2738,8 @@ class StoreDetails extends StatelessWidget {
                                                 height: 60.h,
                                                 child: VerticalDivider(
                                                   width: 2.sp,
-                                                  color: Color(0xFFFABD63),
+                                                  color:
+                                                      const Color(0xFFFABD63),
                                                 ),
                                               ),
                                             ),
@@ -2760,10 +2771,10 @@ class StoreDetails extends StatelessWidget {
                               child: Container(
                                 padding: EdgeInsets.symmetric(horizontal: 15.w),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFf47A6E5),
+                                  color: const Color(0xFf47A6E5),
                                   borderRadius: BorderRadius.circular(20.r),
                                   border: Border.all(
-                                    color: Color(0xFF43D0CA),
+                                    color: const Color(0xFF43D0CA),
                                   ),
                                 ),
                                 child: Text(
@@ -2827,7 +2838,7 @@ class StoreDetails extends StatelessWidget {
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onPressed: () {},
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.close,
                     color: Colors.transparent,
                   ),
@@ -2836,7 +2847,7 @@ class StoreDetails extends StatelessWidget {
             ),
             MySeparator(
               height: 5.h,
-              color: Color(0xFFFABD63),
+              color: const Color(0xFFFABD63),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 30.w),
@@ -2864,11 +2875,11 @@ class StoreDetails extends StatelessWidget {
                                 fontSize: 15.sp,
                               ),
                               decoration: InputDecoration(
-                                fillColor: Color(0xFFE7E7E7),
+                                fillColor: const Color(0xFFE7E7E7),
                                 filled: true,
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Color(0xFFFABD63),
                                     width: 1,
                                   ),
@@ -2878,7 +2889,7 @@ class StoreDetails extends StatelessWidget {
                                     borderSide: BorderSide.none),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: Color(0xFFFABD63), width: 1),
                                 ),
                               ),
@@ -2903,11 +2914,11 @@ class StoreDetails extends StatelessWidget {
                                 fontSize: 15.sp,
                               ),
                               decoration: InputDecoration(
-                                fillColor: Color(0xFFE7E7E7),
+                                fillColor: const Color(0xFFE7E7E7),
                                 filled: true,
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Color(0xFFFABD63),
                                     width: 1,
                                   ),
@@ -2917,7 +2928,7 @@ class StoreDetails extends StatelessWidget {
                                     borderSide: BorderSide.none),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: Color(0xFFFABD63), width: 1),
                                 ),
                               ),
@@ -2941,7 +2952,7 @@ class StoreDetails extends StatelessWidget {
                                     horizontal: 10.w, vertical: 7.h),
                                 decoration: ShapeDecoration(
                                   shape: RoundedRectangleBorder(
-                                    side: BorderSide(
+                                    side: const BorderSide(
                                       width: 1.0,
                                       style: BorderStyle.solid,
                                       color: Color(0xFFFABD63),
@@ -2950,7 +2961,7 @@ class StoreDetails extends StatelessWidget {
                                       Radius.circular(20.r),
                                     ),
                                   ),
-                                  color: Color(0xFFE7E7E7),
+                                  color: const Color(0xFFE7E7E7),
                                 ),
                                 child: Directionality(
                                   textDirection: TextDirection.rtl,
@@ -2959,7 +2970,7 @@ class StoreDetails extends StatelessWidget {
                                     isDense: true,
 
                                     value: controller.roomTime,
-                                    icon: Icon(Icons.arrow_drop_down),
+                                    icon: const Icon(Icons.arrow_drop_down),
                                     iconSize: 24.sp,
                                     // elevation: 16,
 
@@ -3006,7 +3017,7 @@ class StoreDetails extends StatelessWidget {
                         ),
                         SizedBox(height: 10.h),
                         Container(
-                          color: Color(0xFFFFFFD9).withOpacity(.51),
+                          color: const Color(0xFFFFFFD9).withOpacity(.51),
                           width: double.infinity,
                           padding: EdgeInsets.symmetric(
                               horizontal: 10.w, vertical: 10.h),
@@ -3027,8 +3038,8 @@ class StoreDetails extends StatelessWidget {
                                     fontSize: 14.sp,
                                   ),
                                   children: [
-                                    TextSpan(text: "* "),
-                                    TextSpan(
+                                    const TextSpan(text: "* "),
+                                    const TextSpan(
                                         text: "يتمتع الروت بكافة الصلاحيات"),
                                   ],
                                 ),
@@ -3048,10 +3059,10 @@ class StoreDetails extends StatelessWidget {
                               child: Container(
                                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFfDA8080),
+                                  color: const Color(0xFfDA8080),
                                   borderRadius: BorderRadius.circular(20.r),
                                   border: Border.all(
-                                    color: Color(0xFF43D0CA),
+                                    color: const Color(0xFF43D0CA),
                                   ),
                                 ),
                                 child: Text(
@@ -3088,7 +3099,7 @@ class StoreDetails extends StatelessWidget {
                                         decoration: BoxDecoration(
                                           border: Border(
                                             top: BorderSide(
-                                                color: Color(0xFFFABD63),
+                                                color: const Color(0xFFFABD63),
                                                 width: 1.sp),
                                           ),
                                         ),
@@ -3118,7 +3129,8 @@ class StoreDetails extends StatelessWidget {
                                                 height: 60.h,
                                                 child: VerticalDivider(
                                                   width: 2.sp,
-                                                  color: Color(0xFFFABD63),
+                                                  color:
+                                                      const Color(0xFFFABD63),
                                                 ),
                                               ),
                                             ),
@@ -3150,10 +3162,10 @@ class StoreDetails extends StatelessWidget {
                               child: Container(
                                 padding: EdgeInsets.symmetric(horizontal: 15.w),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFf47A6E5),
+                                  color: const Color(0xFf47A6E5),
                                   borderRadius: BorderRadius.circular(20.r),
                                   border: Border.all(
-                                    color: Color(0xFF43D0CA),
+                                    color: const Color(0xFF43D0CA),
                                   ),
                                 ),
                                 child: Text(
@@ -3217,7 +3229,7 @@ class StoreDetails extends StatelessWidget {
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onPressed: () {},
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.close,
                     color: Colors.transparent,
                   ),
@@ -3226,7 +3238,7 @@ class StoreDetails extends StatelessWidget {
             ),
             MySeparator(
               height: 5.h,
-              color: Color(0xFFFABD63),
+              color: const Color(0xFFFABD63),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 30.w),
@@ -3254,11 +3266,11 @@ class StoreDetails extends StatelessWidget {
                                 fontSize: 15.sp,
                               ),
                               decoration: InputDecoration(
-                                fillColor: Color(0xFFE7E7E7),
+                                fillColor: const Color(0xFFE7E7E7),
                                 filled: true,
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Color(0xFFFABD63),
                                     width: 1,
                                   ),
@@ -3268,7 +3280,7 @@ class StoreDetails extends StatelessWidget {
                                     borderSide: BorderSide.none),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: Color(0xFFFABD63), width: 1),
                                 ),
                               ),
@@ -3293,11 +3305,11 @@ class StoreDetails extends StatelessWidget {
                                 fontSize: 15.sp,
                               ),
                               decoration: InputDecoration(
-                                fillColor: Color(0xFFE7E7E7),
+                                fillColor: const Color(0xFFE7E7E7),
                                 filled: true,
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Color(0xFFFABD63),
                                     width: 1,
                                   ),
@@ -3307,7 +3319,7 @@ class StoreDetails extends StatelessWidget {
                                     borderSide: BorderSide.none),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: Color(0xFFFABD63), width: 1),
                                 ),
                               ),
@@ -3331,7 +3343,7 @@ class StoreDetails extends StatelessWidget {
                                     horizontal: 10.w, vertical: 7.h),
                                 decoration: ShapeDecoration(
                                   shape: RoundedRectangleBorder(
-                                    side: BorderSide(
+                                    side: const BorderSide(
                                       width: 1.0,
                                       style: BorderStyle.solid,
                                       color: Color(0xFFFABD63),
@@ -3340,7 +3352,7 @@ class StoreDetails extends StatelessWidget {
                                       Radius.circular(20.r),
                                     ),
                                   ),
-                                  color: Color(0xFFE7E7E7),
+                                  color: const Color(0xFFE7E7E7),
                                 ),
                                 child: Directionality(
                                   textDirection: TextDirection.rtl,
@@ -3349,7 +3361,7 @@ class StoreDetails extends StatelessWidget {
                                     isDense: true,
 
                                     value: controller.roomTime,
-                                    icon: Icon(Icons.arrow_drop_down),
+                                    icon: const Icon(Icons.arrow_drop_down),
                                     iconSize: 24.sp,
                                     // elevation: 16,
 
@@ -3396,7 +3408,7 @@ class StoreDetails extends StatelessWidget {
                         ),
                         SizedBox(height: 10.h),
                         Container(
-                          color: Color(0xFFFFFFD9).withOpacity(.51),
+                          color: const Color(0xFFFFFFD9).withOpacity(.51),
                           width: double.infinity,
                           padding: EdgeInsets.symmetric(
                               horizontal: 10.w, vertical: 10.h),
@@ -3417,8 +3429,8 @@ class StoreDetails extends StatelessWidget {
                                     fontSize: 14.sp,
                                   ),
                                   children: [
-                                    TextSpan(text: "* "),
-                                    TextSpan(
+                                    const TextSpan(text: "* "),
+                                    const TextSpan(
                                         text:
                                             "عند إتمام عملية الشراء سوف يتم خصم النقاط من حسابك وتحويل المنتج إلى محفظتك وإرسال إشعار بإتمام العملية"),
                                   ],
@@ -3428,7 +3440,7 @@ class StoreDetails extends StatelessWidget {
                                 textDirection: TextDirection.rtl,
                               ),
                               !isForMe
-                                  ? SizedBox()
+                                  ? const SizedBox()
                                   : RichText(
                                       text: TextSpan(
                                         style: TextStyle(
@@ -3436,8 +3448,8 @@ class StoreDetails extends StatelessWidget {
                                           fontSize: 14.sp,
                                         ),
                                         children: [
-                                          TextSpan(text: "* "),
-                                          TextSpan(
+                                          const TextSpan(text: "* "),
+                                          const TextSpan(
                                               text:
                                                   "عند إرسال لصديق سوف يتم خصم من رصيدك وإرسال المنتج بشكل سريع لمحفظته "),
                                         ],
@@ -3458,10 +3470,10 @@ class StoreDetails extends StatelessWidget {
                               child: Container(
                                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFfDA8080),
+                                  color: const Color(0xFfDA8080),
                                   borderRadius: BorderRadius.circular(20.r),
                                   border: Border.all(
-                                    color: Color(0xFF43D0CA),
+                                    color: const Color(0xFF43D0CA),
                                   ),
                                 ),
                                 child: Text(
@@ -3498,7 +3510,7 @@ class StoreDetails extends StatelessWidget {
                                         decoration: BoxDecoration(
                                           border: Border(
                                             top: BorderSide(
-                                                color: Color(0xFFFABD63),
+                                                color: const Color(0xFFFABD63),
                                                 width: 1.sp),
                                           ),
                                         ),
@@ -3528,7 +3540,8 @@ class StoreDetails extends StatelessWidget {
                                                 height: 60.h,
                                                 child: VerticalDivider(
                                                   width: 2.sp,
-                                                  color: Color(0xFFFABD63),
+                                                  color:
+                                                      const Color(0xFFFABD63),
                                                 ),
                                               ),
                                             ),
@@ -3560,10 +3573,10 @@ class StoreDetails extends StatelessWidget {
                               child: Container(
                                 padding: EdgeInsets.symmetric(horizontal: 15.w),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFf47A6E5),
+                                  color: const Color(0xFf47A6E5),
                                   borderRadius: BorderRadius.circular(20.r),
                                   border: Border.all(
-                                    color: Color(0xFF43D0CA),
+                                    color: const Color(0xFF43D0CA),
                                   ),
                                 ),
                                 child: Text(
@@ -3627,7 +3640,7 @@ class StoreDetails extends StatelessWidget {
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onPressed: () {},
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.close,
                     color: Colors.transparent,
                   ),
@@ -3636,7 +3649,7 @@ class StoreDetails extends StatelessWidget {
             ),
             MySeparator(
               height: 5.h,
-              color: Color(0xFFFABD63),
+              color: const Color(0xFFFABD63),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 30.w),
@@ -3664,11 +3677,11 @@ class StoreDetails extends StatelessWidget {
                                 fontSize: 15.sp,
                               ),
                               decoration: InputDecoration(
-                                fillColor: Color(0xFFE7E7E7),
+                                fillColor: const Color(0xFFE7E7E7),
                                 filled: true,
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Color(0xFFFABD63),
                                     width: 1,
                                   ),
@@ -3678,7 +3691,7 @@ class StoreDetails extends StatelessWidget {
                                     borderSide: BorderSide.none),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: Color(0xFFFABD63), width: 1),
                                 ),
                               ),
@@ -3703,11 +3716,11 @@ class StoreDetails extends StatelessWidget {
                                 fontSize: 15.sp,
                               ),
                               decoration: InputDecoration(
-                                fillColor: Color(0xFFE7E7E7),
+                                fillColor: const Color(0xFFE7E7E7),
                                 filled: true,
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Color(0xFFFABD63),
                                     width: 1,
                                   ),
@@ -3717,7 +3730,7 @@ class StoreDetails extends StatelessWidget {
                                     borderSide: BorderSide.none),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.r),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: Color(0xFFFABD63), width: 1),
                                 ),
                               ),
@@ -3741,7 +3754,7 @@ class StoreDetails extends StatelessWidget {
                                     horizontal: 10.w, vertical: 7.h),
                                 decoration: ShapeDecoration(
                                   shape: RoundedRectangleBorder(
-                                    side: BorderSide(
+                                    side: const BorderSide(
                                       width: 1.0,
                                       style: BorderStyle.solid,
                                       color: Color(0xFFFABD63),
@@ -3750,7 +3763,7 @@ class StoreDetails extends StatelessWidget {
                                       Radius.circular(20.r),
                                     ),
                                   ),
-                                  color: Color(0xFFE7E7E7),
+                                  color: const Color(0xFFE7E7E7),
                                 ),
                                 child: Directionality(
                                   textDirection: TextDirection.rtl,
@@ -3759,7 +3772,7 @@ class StoreDetails extends StatelessWidget {
                                     isDense: true,
 
                                     value: controller.roomTime,
-                                    icon: Icon(Icons.arrow_drop_down),
+                                    icon: const Icon(Icons.arrow_drop_down),
                                     iconSize: 24.sp,
                                     // elevation: 16,
 
@@ -3806,7 +3819,7 @@ class StoreDetails extends StatelessWidget {
                         ),
                         SizedBox(height: 10.h),
                         Container(
-                          color: Color(0xFFFFFFD9).withOpacity(.51),
+                          color: const Color(0xFFFFFFD9).withOpacity(.51),
                           width: double.infinity,
                           padding: EdgeInsets.symmetric(
                               horizontal: 10.w, vertical: 10.h),
@@ -3827,8 +3840,8 @@ class StoreDetails extends StatelessWidget {
                                     fontSize: 14.sp,
                                   ),
                                   children: [
-                                    TextSpan(text: "* "),
-                                    TextSpan(
+                                    const TextSpan(text: "* "),
+                                    const TextSpan(
                                         text:
                                             "عند إتمام عملية الشراء سوف يتم خصم النقاط من حسابك وتحويل المنتج إلى محفظتك وإرسال إشعار بإتمام العملية"),
                                   ],
@@ -3838,7 +3851,7 @@ class StoreDetails extends StatelessWidget {
                                 textDirection: TextDirection.rtl,
                               ),
                               !isForMe
-                                  ? SizedBox()
+                                  ? const SizedBox()
                                   : RichText(
                                       text: TextSpan(
                                         style: TextStyle(
@@ -3846,8 +3859,8 @@ class StoreDetails extends StatelessWidget {
                                           fontSize: 14.sp,
                                         ),
                                         children: [
-                                          TextSpan(text: "* "),
-                                          TextSpan(
+                                          const TextSpan(text: "* "),
+                                          const TextSpan(
                                               text:
                                                   "عند إرسال لصديق سوف يتم خصم من رصيدك وإرسال المنتج بشكل سريع لمحفظته "),
                                         ],
@@ -3868,10 +3881,10 @@ class StoreDetails extends StatelessWidget {
                               child: Container(
                                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFfDA8080),
+                                  color: const Color(0xFfDA8080),
                                   borderRadius: BorderRadius.circular(20.r),
                                   border: Border.all(
-                                    color: Color(0xFF43D0CA),
+                                    color: const Color(0xFF43D0CA),
                                   ),
                                 ),
                                 child: Text(
@@ -3908,7 +3921,7 @@ class StoreDetails extends StatelessWidget {
                                         decoration: BoxDecoration(
                                           border: Border(
                                             top: BorderSide(
-                                                color: Color(0xFFFABD63),
+                                                color: const Color(0xFFFABD63),
                                                 width: 1.sp),
                                           ),
                                         ),
@@ -3938,7 +3951,8 @@ class StoreDetails extends StatelessWidget {
                                                 height: 60.h,
                                                 child: VerticalDivider(
                                                   width: 2.sp,
-                                                  color: Color(0xFFFABD63),
+                                                  color:
+                                                      const Color(0xFFFABD63),
                                                 ),
                                               ),
                                             ),
@@ -3970,10 +3984,10 @@ class StoreDetails extends StatelessWidget {
                               child: Container(
                                 padding: EdgeInsets.symmetric(horizontal: 15.w),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFf47A6E5),
+                                  color: const Color(0xFf47A6E5),
                                   borderRadius: BorderRadius.circular(20.r),
                                   border: Border.all(
-                                    color: Color(0xFF43D0CA),
+                                    color: const Color(0xFF43D0CA),
                                   ),
                                 ),
                                 child: Text(
@@ -4027,7 +4041,7 @@ class StoreDetails extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               border: Border(
-                top: BorderSide(color: Color(0xFFFABD63), width: 1.sp),
+                top: BorderSide(color: const Color(0xFFFABD63), width: 1.sp),
               ),
             ),
             width: double.infinity,
@@ -4083,7 +4097,7 @@ class StoreDetails extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               border: Border(
-                top: BorderSide(color: Color(0xFFFABD63), width: 1.sp),
+                top: BorderSide(color: const Color(0xFFFABD63), width: 1.sp),
               ),
             ),
             width: double.infinity,

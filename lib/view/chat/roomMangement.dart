@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/userData/userCredentials.dart';
+import '../widgets/all_app_bar.dart';
 import '../side pages/scrollText.dart';
-import 'appBar.dart';
 
 var table1 = [
   {

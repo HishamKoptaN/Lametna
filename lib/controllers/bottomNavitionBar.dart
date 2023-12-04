@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import '../view/chat/moments/moments.dart';
+import '../view/moments/moments.dart';
 import '../view/chatHomePage.dart';
 import '../view/messages/messages.dart';
 import 'userData/userCredentials.dart';
@@ -28,7 +28,7 @@ class BottomNavigationBarController extends GetxController {
     // Get.toNamed()
     Container(),
     if (isGuest == false && isRole == false) Messages() else Container(),
-    test(),
+    Store(),
     // Container()
   ];
 

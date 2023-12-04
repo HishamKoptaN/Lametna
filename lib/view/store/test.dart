@@ -7,9 +7,9 @@ import 'package:get/get.dart';
 var l = ["الملفات", "الغرف", "روتات", "إطارات", "العروض"];
 var month = ["شهر", "3 شهر", "6 شهر", "سنة"];
 
-class test extends StatelessWidget {
+class Store extends StatelessWidget {
+  Store({Key? key}) : super(key: key);
   final GlobalKey<ScaffoldState> scaffoldKey2 = GlobalKey<ScaffoldState>();
-  test({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -349,7 +349,7 @@ Widget messageBuilder({BuildContext? context, dynamic data, bool? guest}) {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(360.r),
                       child: Image.network(
-                        imageURL + data["senderName"] + ".jpeg",
+                        "${imageURL + data["senderName"]}.jpeg",
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) =>
                             Image.network(

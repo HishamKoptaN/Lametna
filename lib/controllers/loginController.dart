@@ -5,10 +5,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // import 'crud.dart';
-import '../controllers/Crud.dart';
+import 'package:lametna/controllers/Crud.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../controllers/userData/userCredentials.dart';
-import '../view/store/test.dart';
+import 'package:lametna/controllers/userData/userCredentials.dart';
+import 'package:lametna/view/store/test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 //import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -45,12 +45,12 @@ class LoginController extends GetxController {
 
   void autoLogIn() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    final String? username = prefs.getString('username');
-    final String? password = prefs.getString('password');
+    final String username = prefs.getString('username')!.trim().toString();
+    final String password = prefs.getString('password')!.trim().toString();
     if (username != null && password != null) {
       userNameController.text = username;
       passwordController.text = password;
-      // login(Get.context!);
+      // login(Get.context);
       print("saved data");
       login(Get.context!, username, password);
     } else {

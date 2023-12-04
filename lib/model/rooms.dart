@@ -70,26 +70,26 @@ class Rooms {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['room_id'] = this.roomId;
-    data['owner_username'] = this.ownerUsername;
-    data['room_name'] = this.roomName;
-    data['Channel_Name'] = this.channelName;
-    data['Token'] = this.token;
-    data['room_img'] = this.roomImg;
-    data['background_img'] = this.backgroundImg;
-    data['background_color'] = this.backgroundColor;
-    data['status'] = this.status;
-    data['hello_msg'] = this.helloMsg;
-    data['password'] = this.password;
-    data['capacity'] = this.capacity;
-    data['number_of_connections'] = this.numberOfConnections;
-    data['start_date'] = this.startDate;
-    data['expiry_date'] = this.expiryDate;
-    data['room_type'] = this.roomType;
-    data['room_plan'] = this.roomPlan;
-    data['description'] = this.description;
-    data['country_name'] = this.countryName;
-    data['flag'] = this.flag;
+    data['room_id'] = roomId;
+    data['owner_username'] = ownerUsername;
+    data['room_name'] = roomName;
+    data['Channel_Name'] = channelName;
+    data['Token'] = token;
+    data['room_img'] = roomImg;
+    data['background_img'] = backgroundImg;
+    data['background_color'] = backgroundColor;
+    data['status'] = status;
+    data['hello_msg'] = helloMsg;
+    data['password'] = password;
+    data['capacity'] = capacity;
+    data['number_of_connections'] = numberOfConnections;
+    data['start_date'] = startDate;
+    data['expiry_date'] = expiryDate;
+    data['room_type'] = roomType;
+    data['room_plan'] = roomPlan;
+    data['description'] = description;
+    data['country_name'] = countryName;
+    data['flag'] = flag;
     return data;
   }
 }

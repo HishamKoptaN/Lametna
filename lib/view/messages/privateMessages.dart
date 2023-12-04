@@ -110,7 +110,7 @@ class PrivateMessage extends StatelessWidget {
                           return ListView.builder(
                             reverse: true,
                             itemBuilder: (context, index) {
-                              // final message = snapshot.data['data'][index] ;
+                              final message = snapshot.data['data'][index];
                               final isSentByMe = message["sender"] == userId;
                               return Padding(
                                 padding: EdgeInsets.symmetric(

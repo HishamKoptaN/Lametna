@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../controllers/chat/roomInfoController.dart';
-import 'appBar.dart';
+import '../widgets/all_app_bar.dart';
 
 class RoomInfo extends StatelessWidget {
   RoomInfo({Key? key}) : super(key: key);

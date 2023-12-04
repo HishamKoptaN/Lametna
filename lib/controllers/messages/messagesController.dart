@@ -15,7 +15,7 @@ class MessagesController extends GetxController {
   void onInit() {
     super.onInit();
     getData();
-    Timer.periodic(Duration(seconds: 2), (timer) {
+    Timer.periodic(const Duration(seconds: 2), (timer) {
       getData();
     });
   }

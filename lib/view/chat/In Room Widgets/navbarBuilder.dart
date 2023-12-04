@@ -378,7 +378,7 @@ Widget buildMyNavBar(BuildContext context) {
 ///////////////////////////////////////////////////////////////////////
                 child: Column(
                   children: [
-                    Container(
+                    SizedBox(
                       height: 71.h,
                       child: Row(
                         children: [

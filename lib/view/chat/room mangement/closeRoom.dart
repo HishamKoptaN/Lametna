@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../controllers/chat/roomPageSettingsController.dart';
-import '../appBar.dart';
+import '../../widgets/all_app_bar.dart';
 
 class CloseRoom extends StatelessWidget {
   const CloseRoom({Key? key}) : super(key: key);

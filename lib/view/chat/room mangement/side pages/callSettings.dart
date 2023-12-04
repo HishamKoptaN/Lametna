@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../controllers/chat/room managment/roomSettingsController.dart';
-import '../../appBar.dart';
+import '../../../widgets/all_app_bar.dart';
 
 var l = ['الجميع', 'الأعضاء والمشرفين فقط', 'المشرفين فقط', 'لا أحد'];
 

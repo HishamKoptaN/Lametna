@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../controllers/profile/changeBackgroundController.dart';
 import '../../controllers/userData/userCredentials.dart';
 import '../../controllers/userData/variables.dart';
-import '../chat/appBar.dart';
+import '../widgets/all_app_bar.dart';
 
 class ChangeBackground extends StatelessWidget {
   const ChangeBackground({Key? key}) : super(key: key);

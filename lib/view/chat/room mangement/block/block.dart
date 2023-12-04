@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../controllers/chat/blockController.dart';
-import '../../appBar.dart';
+import '../../../widgets/all_app_bar.dart';
 import 'countries.dart';
 
 var color = Get.arguments["color"];

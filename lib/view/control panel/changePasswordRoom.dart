@@ -4,7 +4,7 @@ import '../../controllers/control panel/controllerPanelController.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../chat/appBar.dart';
+import '../widgets/all_app_bar.dart';
 
 class ChangePasswordRoom extends StatelessWidget {
   const ChangePasswordRoom({Key? key}) : super(key: key);
@@ -57,7 +57,7 @@ class ChangePasswordRoom extends StatelessWidget {
                               init: MainControllerPanelController(),
                               builder: (controller) {
                                 return TextFormField(
-                                  style: new TextStyle(
+                                  style: TextStyle(
                                       fontSize: 16.0.sp, color: Colors.black),
                                   obscureText: !controller.passwordVisibility,
                                   decoration: InputDecoration(

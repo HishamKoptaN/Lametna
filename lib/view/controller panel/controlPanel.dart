@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import '../../controllers/controller Panel/controllerPanelController.dart';
 import '../../controllers/userData/userCredentials.dart';
 import '../../controllers/userData/variables.dart';
-import '../chat/appBar.dart';
+import '../widgets/all_app_bar.dart';
 
 class ControlPanel extends StatelessWidget {
   const ControlPanel({Key? key}) : super(key: key);
